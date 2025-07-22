@@ -11,7 +11,8 @@ local secret_door_open = {
   hidden = true,
   img = utils.load_img("assets/imgs/items/secret_door_open.png"),
   activate = function(self, game)
-    game:navigate("secret_room")
+    game.msg = "you found a secret\npassageway!"
+    -- game:navigate("secret_room")
   end
 }
 

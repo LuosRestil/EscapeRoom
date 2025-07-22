@@ -5,4 +5,6 @@
 -- radio 
 -- color puzzle box
 
+-- make books clickable
+
 - "pickup" metatable for takeable items?
