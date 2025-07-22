@@ -130,4 +130,21 @@ function game:pickup(item)
   self.msg = "got " .. item.name .. "!"
 end
 
+function game:inv_weight()
+  local weight = 0
+  for _, item in ipairs(inv.items) do
+    weight = weight + item.weight
+  end
+  return weight
+end
+
+function game:scene_toggle_item_hidden(item_name)
+  for _, item in ipairs(self.current_scene.items) do
+    if item.name == item_name then
+      if item.hidden == nil then item.hidden = false end
+      item.hidden = not item.hidden
+    end
+  end
+end
+
 return game

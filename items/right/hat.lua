@@ -6,6 +6,7 @@ local hat = {
   y = 101,
   w = 8,
   h = 8,
+  weight = 308,
   desc = "keeps the sun\nout of your eyes.",
   img = utils.load_img("assets/imgs/items/hat.png"),
   activate = function(self, game)

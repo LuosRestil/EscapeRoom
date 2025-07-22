@@ -6,6 +6,7 @@ local flower = {
   y = 110,
   w = 8,
   h = 8,
+  weight = 630,
   desc = "it's a flower.\nsmells nice.",
   img = utils.load_img("assets/imgs/items/flower.png"),
   activate = function(self, game)

@@ -6,6 +6,7 @@ local bulb = {
   y = 104,
   w = 8,
   h = 8,
+  weight = 42,
   desc = "in case you have\na bright idea.",
   img = utils.load_img("assets/imgs/items/bulb.png"),
   activate = function(self, game)

@@ -76,4 +76,32 @@ function utils.print(text, x, y, color)
   gfx.setColor(colors.white)
 end
 
+function utils.format_num(num)
+  local res = {}
+  local digits = utils.split_str(tostring(num))
+  utils.reverse_list(digits)
+  for i, digit in ipairs(digits) do
+    table.insert(res, digit)
+    if i % 3 == 0 and i ~= #digits then table.insert(res, ",") end
+  end
+  utils.reverse_list(res)
+  return table.concat(res, "")
+end
+
+function utils.reverse_list(list)
+  for i = 1, math.floor(#list / 2) do
+    list[i], list[#list - i + 1] = list[#list - i + 1], list[i]
+  end
+  return list
+end
+
+function utils.split_str(str, sep_pattern)
+  if sep_pattern == nil then sep_pattern = "." end
+  local chars = {}
+  for char in string.gmatch(str, sep_pattern) do
+    table.insert(chars, char)
+  end
+  return chars
+end
+
 return utils

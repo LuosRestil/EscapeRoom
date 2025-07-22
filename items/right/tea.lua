@@ -6,6 +6,7 @@ local tea = {
   y = 116,
   w = 8,
   h = 8,
+  weight = 876,
   desc = "smells of bitter almonds.",
   img = utils.load_img("assets/imgs/items/tea.png"),
   activate = function(self, game)

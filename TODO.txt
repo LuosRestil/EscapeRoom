@@ -1,1 +1,8 @@
+-- storage locker for items in your inventory
+-- window room
+-- binoculars sprite
+-- window view (binoculars)
+-- radio 
+-- color puzzle box
+
 - "pickup" metatable for takeable items?
