@@ -13,7 +13,6 @@ local pressure_plate = {
     if game:inv_weight() + 62000 == self.trigger_weight then
       game:scene_toggle_item_hidden("secret_door_closed")
       game:scene_toggle_item_hidden("secret_door_open")
-      -- open door
     else
       -- click sound
     end
