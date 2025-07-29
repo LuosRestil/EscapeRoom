@@ -29,7 +29,8 @@ local color_box = {
   code = { 0, 0, 0 },
   validate_code = function(self, game)
     if self.code[1] == solution[1] and self.code[2] == solution[2] and self.code[3] == solution[3] then
-      game.color_box_open = true
+      game:scene_toggle_item_hidden("right", "color_box")
+      game:scene_toggle_item_hidden("right", "color_box_open")
       game:navigate("color_box_open")
       -- play sound
     end
@@ -41,7 +42,6 @@ local function activate(self, game)
   if color_box.code[self.idx] == -1 then color_box.code[self.idx] = 9 end
   if color_box.code[self.idx] == 10 then color_box.code[self.idx] = 0 end
   color_box:validate_code(game)
-  print(color_box.code[self.idx])
 end
 
 local function draw(self)

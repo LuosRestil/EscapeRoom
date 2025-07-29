@@ -22,7 +22,6 @@ game.drag_start = nil
 game.drag_end = nil
 
 game.grate_open = false
-game.color_box_open = false
 
 function game:update()
   self.hovered_item = nil
@@ -167,11 +166,15 @@ function game:inv_weight()
   return weight
 end
 
-function game:scene_toggle_item_hidden(item_name)
-  for _, item in ipairs(self.current_scene.items) do
-    if item.name == item_name then
-      if item.hidden == nil then item.hidden = false end
-      item.hidden = not item.hidden
+function game:scene_toggle_item_hidden(scene_name, item_name)
+  for name, scene in pairs(scenes) do
+    if name == scene_name then
+      for _, item in ipairs(scene.items) do
+        if item.name == item_name then
+          if item.hidden == nil then item.hidden = false end
+          item.hidden = not item.hidden
+        end
+      end
     end
   end
 end

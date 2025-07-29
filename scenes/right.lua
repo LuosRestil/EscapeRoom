@@ -14,15 +14,29 @@ local right = {
   items = { bulb, burger, car, flower, hat, rabbit, screwdriver, tea }
 }
 
--- color box
 table.insert(right.items, {
-  x=97,y=57,w=22,h=13,
-  activate = function (self, game)
-    if game.color_box_open then 
-      game:navigate("color_box_open")
-    else
-      game:navigate("color_box")
-    end
+  name = "color_box",
+  img = utils.load_img("assets/imgs/items/color_box.png"),
+  x = 97,
+  y = 56,
+  w = 23,
+  h = 14,
+  img_offset_y = -6,
+  activate = function(self, game)
+    game:navigate("color_box")
+  end
+})
+
+table.insert(right.items, {
+  name = "color_box_open",
+  img = utils.load_img("assets/imgs/items/color_box_open.png"),
+  hidden = true,
+  x = 97,
+  y = 50,
+  w = 22,
+  h = 21,
+  activate = function(self, game)
+    game:navigate("color_box_open")
   end
 })
 

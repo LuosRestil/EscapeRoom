@@ -11,8 +11,8 @@ local pressure_plate = {
   img = utils.load_img("assets/imgs/items/pressure_plate.png"),
   activate = function(self, game)
     if game:inv_weight() + 62000 == self.trigger_weight then
-      game:scene_toggle_item_hidden("secret_door_closed")
-      game:scene_toggle_item_hidden("secret_door_open")
+      game:scene_toggle_item_hidden("left", "secret_door_closed")
+      game:scene_toggle_item_hidden("left", "secret_door_open")
     else
       -- click sound
     end
