@@ -13,7 +13,7 @@ local game = {}
 game.hovered_item = nil
 game.inv_open = false
 game.msg = nil
-game.debug_mode = true
+game.debug_mode = false
 game.mouse_mode = false
 
 --measuring stuff with the mouse in debug mode
@@ -82,7 +82,7 @@ function game:draw()
         love.graphics.print("x=" ..
           game.drag_start.x ..
           ",y=" .. game.drag_start.y ..
-          " w=" .. game.drag_end.x - game.drag_start.x .. ",y=" .. game.drag_end.y - game.drag_start.y, 25, 0)
+          " w=" .. game.drag_end.x - game.drag_start.x .. ",h=" .. game.drag_end.y - game.drag_start.y, 25, 0)
       end
       love.graphics.setColor(1, 1, 1, 1)
     end
@@ -90,6 +90,13 @@ function game:draw()
 end
 
 function game:keypressed(key, scancode, is_repeat)
+  if scancode == "d" then
+    self.debug_mode = not self.debug_mode
+  end
+  if scancode == "m" then
+    self.mouse_mode = not self.mouse_mode
+  end
+
   if self.inv_open then
     if scancode == "left" and inv.selected_idx > 1 then
       inv.selected_idx = inv.selected_idx - 1
