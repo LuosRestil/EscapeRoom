@@ -5,6 +5,7 @@ local inv = require "inventory"
 local dialog = require "dialog"
 local scenes = require "scenes"
 local utils = require "utils"
+local colors = require "colors"
 
 local NAV_AREAS = { "nav_left", "nav_right", "nav_back" }
 
@@ -12,7 +13,16 @@ local game = {}
 game.hovered_item = nil
 game.inv_open = false
 game.msg = nil
-game.debug_mode = false
+game.debug_mode = true
+game.mouse_mode = false
+
+--measuring stuff with the mouse in debug mode
+game.dragging = false
+game.drag_start = nil
+game.drag_end = nil
+
+game.grate_open = false
+game.color_box_open = false
 
 function game:update()
   self.hovered_item = nil
@@ -61,6 +71,18 @@ function game:draw()
       love.graphics.setColor(0, 255, 100)
       for _, area in ipairs(nav.areas) do
         love.graphics.rectangle("line", area.x, area.y, area.w, area.h)
+      end
+      love.graphics.setColor(colors.yellow)
+      love.graphics.print(ptr.x .. ":" .. ptr.y)
+      if game.drag_start ~= nil and game.drag_end ~= nil then
+        local w, h = game.drag_end.x - game.drag_start.x, game.drag_end.y - game.drag_start.y
+        love.graphics.setColor(colors.pink)
+        love.graphics.rectangle("line", game.drag_start.x, game.drag_start.y, w, h)
+        love.graphics.setColor(colors.orange)
+        love.graphics.print("x=" ..
+          game.drag_start.x ..
+          ",y=" .. game.drag_start.y ..
+          " w=" .. game.drag_end.x - game.drag_start.x .. ",y=" .. game.drag_end.y - game.drag_start.y, 25, 0)
       end
       love.graphics.setColor(1, 1, 1, 1)
     end
@@ -143,6 +165,24 @@ function game:scene_toggle_item_hidden(item_name)
     if item.name == item_name then
       if item.hidden == nil then item.hidden = false end
       item.hidden = not item.hidden
+    end
+  end
+end
+
+function game:handle_mouse(scale)
+  local game_x, game_y = math.floor(love.mouse.getX() / scale), math.floor(love.mouse.getY() / scale)
+  ptr:set(game_x, game_y)
+  if love.mouse.isDown(1) then
+    if not game.dragging then
+      game.dragging = true
+      game.drag_end = nil
+      game.drag_start = { x = game_x, y = game_y }
+    else
+      game.drag_end = { x = game_x, y = game_y }
+    end
+  else
+    if game.dragging then
+      game.dragging = false
     end
   end
 end

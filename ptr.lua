@@ -43,4 +43,8 @@ function ptr:reset()
   self.x, self.y = 64, 64
 end
 
+function ptr:set(x, y)
+  self.x, self.y = x, y
+end
+
 return ptr

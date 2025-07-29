@@ -8,7 +8,11 @@ local grate = {
 }
 
 function grate:activate(game)
-  game:navigate("grate")
+  if game.grate_open then
+    game:navigate("grate_open")
+  else
+    game:navigate("grate")
+  end
 end
 
 return grate

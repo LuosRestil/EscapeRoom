@@ -14,4 +14,16 @@ local right = {
   items = { bulb, burger, car, flower, hat, rabbit, screwdriver, tea }
 }
 
+-- color box
+table.insert(right.items, {
+  x=97,y=57,w=22,h=13,
+  activate = function (self, game)
+    if game.color_box_open then 
+      game:navigate("color_box_open")
+    else
+      game:navigate("color_box")
+    end
+  end
+})
+
 return right

@@ -19,12 +19,16 @@ function love.update(dt)
   if frametime >= framerate then
     frametime = frametime - framerate
     game:update()
+
+    if game.debug_mode and game.mouse_mode then
+      game:handle_mouse(display.scale)
+    end
   end
 end
 
 function love:draw()
   love.graphics.push()
-  love.graphics.translate(display.offset_x, display.offset_y)
+  -- love.graphics.translate(display.offset_x, display.offset_y)
   love.graphics.scale(display.scale)
 
   game:draw()

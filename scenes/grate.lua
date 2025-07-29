@@ -16,6 +16,7 @@ for _, screw_loc in ipairs(screw_locs) do
     activate = function(self, game)
       if game.active_item ~= nil then
         if game.active_item.name == "screwdriver" then
+          game.grate_open = true
           game:navigate("grate_open")
         else
           game:wrong_item("turn a screw")

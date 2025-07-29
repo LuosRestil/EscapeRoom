@@ -1,9 +1,7 @@
+-- draw color box numbers
+-- piano scene gfx
+-- radio scene gfx
 -- storage locker for items in your inventory
--- window room
--- binoculars sprite
--- window view (binoculars)
--- radio 
--- color puzzle box
 
 -- make books clickable
 
