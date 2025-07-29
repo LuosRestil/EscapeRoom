@@ -1,6 +1,19 @@
 local utils = require "utils"
 
-local solution = { 1, 2, 3 }
+local solution = { 8, 7, 6 }
+local numbersImg = utils.load_img("assets/imgs/scenes/color_box_nums.png")
+local numberImgs = {
+  love.graphics.newQuad(0, 0, 9, 13, numbersImg),
+  love.graphics.newQuad(10, 0, 9, 13, numbersImg),
+  love.graphics.newQuad(20, 0, 9, 13, numbersImg),
+  love.graphics.newQuad(30, 0, 9, 13, numbersImg),
+  love.graphics.newQuad(0, 14, 9, 13, numbersImg),
+  love.graphics.newQuad(10, 14, 9, 13, numbersImg),
+  love.graphics.newQuad(20, 14, 9, 13, numbersImg),
+  love.graphics.newQuad(30, 14, 9, 13, numbersImg),
+  love.graphics.newQuad(0, 28, 9, 13, numbersImg),
+  love.graphics.newQuad(10, 28, 9, 13, numbersImg),
+}
 
 local color_box = {
   back = "right",
@@ -31,8 +44,14 @@ local function activate(self, game)
   print(color_box.code[self.idx])
 end
 
+local function draw(self)
+  if self.amt == -1 then return end -- don't draw for both buttons
+  love.graphics.draw(numbersImg, numberImgs[color_box.code[self.idx] + 1], self.x + 3, self.y - 18)
+end
+
 for _, item in ipairs(color_box.items) do
   item.activate = activate
+  item.draw = draw
   item.w = 15
   item.h = 8
 end
