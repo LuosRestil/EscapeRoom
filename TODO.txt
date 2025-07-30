@@ -1,4 +1,3 @@
--- make grate in start room an item and toggle open/closed
 -- piano scene gfx
 -- radio scene gfx
 -- storage locker for items in your inventory

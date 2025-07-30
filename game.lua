@@ -21,8 +21,6 @@ game.dragging = false
 game.drag_start = nil
 game.drag_end = nil
 
-game.grate_open = false
-
 function game:update()
   self.hovered_item = nil
   if self.inv_open then return end

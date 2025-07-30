@@ -1,18 +1,18 @@
+local utils = require "utils"
+
 local grate = {
   name = "grate",
-  x = 5,
+  x = 8,
   y = 5,
   w = 23,
   h = 23,
-  desc = "something's rattling\naround in there...",
+  img = utils.load_img("assets/imgs/items/grate.png"),
 }
 
 function grate:activate(game)
-  if game.grate_open then
-    game:navigate("grate_open")
-  else
-    game:navigate("grate")
-  end
+  game:scene_toggle_item_hidden("start", "grate")
+  game:scene_toggle_item_hidden("start", "grate_open")
+  game:navigate("grate")
 end
 
 return grate
