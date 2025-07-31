@@ -9,5 +9,6 @@
 -- make books clickable
 -- animate radio dial when buttons are clicked (maybe calculate a percentage value between "    " and "zzzz")
 -- animate sound waves / music notes when the radio is on
+-- tweak all the messages
 
 - title screen, how to play
