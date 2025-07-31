@@ -7,7 +7,8 @@ local colors = {
   red = { 255, 0, 77 },
   navy = { 29, 43, 83 },
   purple = { 126, 37, 83 },
-  pink = { 255, 119, 168 }
+  pink = { 255, 119, 168 },
+  lime = { 0, 228, 54 }
 }
 
 -- normalize for love graphics

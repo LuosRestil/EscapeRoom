@@ -104,4 +104,12 @@ function utils.split_str(str, sep_pattern)
   return chars
 end
 
+function utils.map(list, func)
+  local new_list = {}
+  for _, item in ipairs(list) do
+    table.insert(new_list, func(item))
+  end
+  return new_list
+end
+
 return utils

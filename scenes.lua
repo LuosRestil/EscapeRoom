@@ -7,6 +7,7 @@ local grate = require "scenes.grate"
 local grate_open = require "scenes.grate_open"
 local color_box = require "scenes.color_box"
 local color_box_open = require "scenes.color_box_open"
+local radio = require "scenes.radio"
 
 local scenes = {
   start = start,
@@ -15,7 +16,8 @@ local scenes = {
   grate = grate,
   grate_open = grate_open,
   color_box = color_box,
-  color_box_open = color_box_open
+  color_box_open = color_box_open,
+  radio = radio
 }
 
 for _, scene in pairs(scenes) do

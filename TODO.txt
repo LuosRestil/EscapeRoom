@@ -1,12 +1,13 @@
--- radio scene gfx
+-- radio sound
 -- piano scene gfx
+-- piano scene sound
 -- scale puzzle, don't do locker. just use item on scale.
     -- lock is series of item images, and somewhere else is a clue that lists weights
     -- example: 128, 2486, 93, 75 -> weights of hat, cat, cup, pencil, whatever
     -- maybe not images, like a lock box, but platforms, pressure plates, where items must be placed
 
 -- make books clickable
-
-- "pickup" metatable for takeable items?
+-- animate radio dial when buttons are clicked (maybe calculate a percentage value between "    " and "zzzz")
+-- animate sound waves / music notes when the radio is on
 
 - title screen, how to play

@@ -11,4 +11,11 @@ local start = {
   items = { key, lock, grate, grate_open }
 }
 
+-- radio
+table.insert(start.items, {
+  x=9, y=57, w=22, h=14, activate = function(self, game)
+    game:navigate("radio")
+  end
+})
+
 return start
