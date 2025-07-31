@@ -10,8 +10,6 @@ local grate = {
 }
 
 function grate:activate(game)
-  game:scene_toggle_item_hidden("start", "grate")
-  game:scene_toggle_item_hidden("start", "grate_open")
   game:navigate("grate")
 end
 

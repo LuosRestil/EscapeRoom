@@ -25,9 +25,7 @@ local color_box = {
 }
 
 local function activate(self, game)
-  print("before: "..color_box.code[self.idx])
   color_box.code[self.idx] = color_box.code[self.idx] + self.amt
-  print("after: "..color_box.code[self.idx])
   if color_box.code[self.idx] == -1 then color_box.code[self.idx] = 9 end
   if color_box.code[self.idx] == 10 then color_box.code[self.idx] = 0 end
   color_box:validate_code(game)
