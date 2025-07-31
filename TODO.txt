@@ -1,7 +1,12 @@
--- piano scene gfx
 -- radio scene gfx
--- storage locker for items in your inventory
+-- piano scene gfx
+-- scale puzzle, don't do locker. just use item on scale.
+    -- lock is series of item images, and somewhere else is a clue that lists weights
+    -- example: 128, 2486, 93, 75 -> weights of hat, cat, cup, pencil, whatever
+    -- maybe not images, like a lock box, but platforms, pressure plates, where items must be placed
 
 -- make books clickable
 
 - "pickup" metatable for takeable items?
+
+- title screen, how to play

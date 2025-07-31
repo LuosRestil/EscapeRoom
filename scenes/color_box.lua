@@ -1,19 +1,6 @@
 local utils = require "utils"
 
 local solution = { 8, 7, 6 }
-local numbersImg = utils.load_img("assets/imgs/scenes/color_box_nums.png")
-local numberImgs = {
-  love.graphics.newQuad(0, 0, 9, 13, numbersImg),
-  love.graphics.newQuad(10, 0, 9, 13, numbersImg),
-  love.graphics.newQuad(20, 0, 9, 13, numbersImg),
-  love.graphics.newQuad(30, 0, 9, 13, numbersImg),
-  love.graphics.newQuad(0, 14, 9, 13, numbersImg),
-  love.graphics.newQuad(10, 14, 9, 13, numbersImg),
-  love.graphics.newQuad(20, 14, 9, 13, numbersImg),
-  love.graphics.newQuad(30, 14, 9, 13, numbersImg),
-  love.graphics.newQuad(0, 28, 9, 13, numbersImg),
-  love.graphics.newQuad(10, 28, 9, 13, numbersImg),
-}
 
 local color_box = {
   back = "right",
@@ -38,7 +25,9 @@ local color_box = {
 }
 
 local function activate(self, game)
+  print("before: "..color_box.code[self.idx])
   color_box.code[self.idx] = color_box.code[self.idx] + self.amt
+  print("after: "..color_box.code[self.idx])
   if color_box.code[self.idx] == -1 then color_box.code[self.idx] = 9 end
   if color_box.code[self.idx] == 10 then color_box.code[self.idx] = 0 end
   color_box:validate_code(game)
@@ -46,7 +35,12 @@ end
 
 local function draw(self)
   if self.amt == -1 then return end -- don't draw for both buttons
-  love.graphics.draw(numbersImg, numberImgs[color_box.code[self.idx] + 1], self.x + 3, self.y - 18)
+  love.graphics.push()
+  love.graphics.scale(3, 3)
+  love.graphics.setColor(0, 0, 0)
+  love.graphics.print(color_box.code[self.idx], self.x/3 + 1, 26.66)
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.pop()
 end
 
 for _, item in ipairs(color_box.items) do
