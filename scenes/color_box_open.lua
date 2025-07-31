@@ -1,23 +1,21 @@
 local utils = require "utils"
 
-local numbersImg = utils.load_img("assets/imgs/scenes/color_box_nums.png")
-local numberImgs = {
-  love.graphics.newQuad(20, 14, 9, 13, numbersImg), -- 6
-  love.graphics.newQuad(30, 14, 9, 13, numbersImg), -- 7
-  love.graphics.newQuad(0, 28, 9, 13, numbersImg),  -- 8
-}
-
 local function draw(self)
-  love.graphics.draw(numbersImg, numberImgs[self.img_idx], self.x, self.y)
+    love.graphics.push()
+    love.graphics.scale(3, 3)
+    love.graphics.setColor(0, 0, 0)
+    love.graphics.print(self.num, self.x/3 + 1, 26.66)
+    love.graphics.setColor(1, 1, 1)
+    love.graphics.pop()
 end
 
 local color_box_open = {
   back = "right",
   img = utils.load_img("assets/imgs/scenes/color_box_open.png"),
   items = {
-    { x = 25, y = 81, w = 0, h = 0, img_idx = 3, draw = draw },
-    { x = 61, y = 81, w = 0, h = 0, img_idx = 2, draw = draw },
-    { x = 97, y = 81, w = 0, h = 0, img_idx = 1, draw = draw },
+    { x = 22, y = 81, w = 0, h = 0, num = 8, draw = draw },
+    { x = 58, y = 81, w = 0, h = 0, num = 7, draw = draw },
+    { x = 94, y = 81, w = 0, h = 0, num = 6, draw = draw },
   }
 }
 
