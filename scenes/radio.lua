@@ -1,8 +1,10 @@
 local utils = require "utils"
 local colors = require "colors"
 
--- local static = load sound static
--- local song = load sound song
+local static = love.audio.newSource("assets/audio/radio/static.ogg", "stream")
+static:setLooping(true)
+local song = love.audio.newSource("assets/audio/radio/song.ogg", "stream")
+song:setLooping(true)
 
 local solution = utils.map(utils.split_str("krlc"), string.byte)
 local naughty_words = { "shit", "fuck", "dick", "cunt" }
@@ -17,7 +19,7 @@ local radio = {
   back = "start",
   img = utils.load_img("assets/imgs/scenes/radio.png"),
   on = false,
-  -- sound = static,
+  sound = static,
   -- ascii, 32 (space) 97-122 (a-z)
   code = { 32, 32, 32, 32 },
   items = {
@@ -26,21 +28,7 @@ local radio = {
     { x = 30, y = 55, idx = 2 },
     { x = 50, y = 55, idx = 3 },
     { x = 70, y = 55, idx = 4 },
-    -- power
-    {
-      x = 97,
-      y = 56,
-      w = 15,
-      h = 15,
-      activate = function(self, game)
-        if self.on then
-          -- play song
-        else
-          -- stop song
-        end
-        self.on = not self.on
-      end
-    }
+
   },
   check_code = function(self, game)
     local is_solution = true
@@ -55,9 +43,41 @@ local radio = {
     for _, naughty in ipairs(naughties) do
       if naughty then game.msg = "naughty..." end
     end
-    if is_solution then game.msg = "sound changed to song" end
+    if is_solution then
+      if self.on and self.sound == static then
+        self.sound:stop()
+        self.sound = song
+        self.sound:play()
+      else
+        self.sound = song
+      end
+    else
+      if self.on and self.sound == song then
+        self.sound:stop()
+        self.sound = static
+        self.sound:play()
+      else
+        self.sound = static
+      end
+    end
   end
 }
+
+-- power button
+table.insert(radio.items, {
+  x = 97,
+  y = 56,
+  w = 15,
+  h = 15,
+  activate = function(self, game)
+    radio.on = not radio.on
+    if radio.on then
+      radio.sound:play()
+    else
+      radio.sound:stop()
+    end
+  end
+})
 
 local function activate(self, game)
   assert(radio.code ~= nil)
