@@ -1,8 +1,11 @@
+-- don't show exclamation on inventory button hover
+
 -- radio sound
 -- piano scene gfx
 -- piano scene sound
 -- scale puzzle, don't do locker. just use item on scale.
     -- lock is series of item images, and somewhere else is a clue that lists weights
+    -- maybe there's a picture of scales on the box/door/whatever to indicate that this is where that's used
     -- example: 128, 2486, 93, 75 -> weights of hat, cat, cup, pencil, whatever
     -- maybe not images, like a lock box, but platforms, pressure plates, where items must be placed
 

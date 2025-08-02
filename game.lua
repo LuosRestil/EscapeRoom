@@ -46,7 +46,7 @@ function game:draw()
       nav:draw_ptr(ptr, game)
     elseif self.active_item ~= nil then
       -- item ptr
-      self.active_item:draw_ptr(ptr, self.hovered_item ~= nil)
+      self.active_item:draw_ptr(ptr, self.hovered_item ~= nil and self.hovered_item ~= inv_btn)
     elseif self.hovered_item ~= inv_btn then -- normal ptr
       -- normal ptr
       if self.hovered_item == nil then
