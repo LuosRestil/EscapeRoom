@@ -8,7 +8,10 @@ local colors = {
   navy = { 29, 43, 83 },
   purple = { 126, 37, 83 },
   pink = { 255, 119, 168 },
-  lime = { 0, 228, 54 }
+  lime = { 0, 228, 54 },
+  lavender = { 131, 118, 156 },
+  dark_grey = { 95, 87, 79 },
+  light_grey = { 194, 195, 199 }
 }
 
 -- normalize for love graphics

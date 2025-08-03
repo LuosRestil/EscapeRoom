@@ -1,4 +1,5 @@
 local utils = require "utils"
+local colors = require "colors"
 
 local solution = { 8, 7, 6 }
 
@@ -21,6 +22,14 @@ local color_box = {
       game:navigate("color_box_open")
       -- play sound
     end
+  end,
+  draw2 = function(self)
+    utils.rectfill(44, 42, 39, 9, colors.orange)
+    utils.print("ex libris", 45, 44, colors.dark_grey)
+    utils.print("ex libris", 46, 43, colors.dark_grey)
+    utils.print("ex libris", 47, 44, colors.dark_grey)
+    utils.print("ex libris", 46, 45, colors.dark_grey)
+    utils.print("ex libris", 46, 44, colors.yellow)
   end
 }
 
@@ -36,7 +45,7 @@ local function draw(self)
   love.graphics.push()
   love.graphics.scale(3, 3)
   love.graphics.setColor(0, 0, 0)
-  love.graphics.print(color_box.code[self.idx], self.x/3 + 1, 26.66)
+  love.graphics.print(color_box.code[self.idx], self.x / 3 + 1, 26.66)
   love.graphics.setColor(1, 1, 1)
   love.graphics.pop()
 end
