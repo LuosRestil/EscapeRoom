@@ -1,4 +1,5 @@
 local utils = require "utils"
+local colors = require "colors"
 
 local inv_btn = {
   name = "inventory button",
@@ -16,9 +17,8 @@ function inv_btn:hover(ptr, game)
 end
 
 function inv_btn:draw(game)
-  if game.hovered_item == self then
-    love.graphics.rectangle("fill", self.x + 1, self.y + 1, self.w - 1, self.h - 1)
-  end
+  local color = game.hovered_item == self and colors.white or colors.light_blue
+  utils.rectfill(self.x, self.y, self.w, self.h, color)
   love.graphics.draw(self.img, self.x, self.y)
 end
 
