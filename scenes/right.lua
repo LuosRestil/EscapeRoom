@@ -46,10 +46,20 @@ local right = {
       activate = function(self, game)
         if game.active_item ~= nil and game.active_item.name == "binoculars" then
           game.msg =
-          "through the binoculars, you\nsee the banner is an \nadvertisement for a radio\nstation, \"101.1 krlc\""   --TODO full text
+          "through the binoculars, you\nsee the banner is an \nadvertisement for a radio\nstation, \"101.1 krlc\"" --TODO full text
         else
           game.msg = "through the window, you see\na plane pulling a banner.\nit's too far away to read\nthe message"
         end
+      end
+    },
+    {
+      name = "piano",
+      x = 9,
+      y = 76,
+      w = 45,
+      h = 17,
+      activate = function(self, game)
+        game:navigate("piano")
       end
     }
   }
