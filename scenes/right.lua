@@ -7,6 +7,7 @@ local rabbit = require "items.right.rabbit"
 local screwdriver = require "items.right.screwdriver"
 local tea = require "items.right.tea"
 local binoculars = require "items.right.binoculars"
+local sheet_music_inv = require "items.right.sheet_music_inv"
 local utils = require "utils"
 
 local right = {
@@ -64,5 +65,19 @@ local right = {
     }
   }
 }
+
+-- sheet music
+table.insert(right.items, {
+  name = "sheet music piano",
+  x = 17,
+  y = 66,
+  w = 30,
+  h = 9,
+  img = utils.load_img("assets/imgs/items/sheet_music_piano.png"),
+  activate = function(self, game)
+    game:pickup(sheet_music_inv)
+    game:remove_item_from_items(right.items, self.name)
+  end
+})
 
 return right

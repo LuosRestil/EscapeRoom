@@ -1,3 +1,4 @@
+local item_metatable = require "items.item"
 local utils = require "utils"
 
 local pencil = {
@@ -7,5 +8,7 @@ local pencil = {
   img = utils.load_img("assets/imgs/items/pencil.png"),
   img_offset_y = -2,
 }
+
+setmetatable(pencil, { __index = item_metatable })
 
 return pencil
