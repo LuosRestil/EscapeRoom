@@ -1,9 +1,9 @@
 local scale = {
   name = "scale",
-  x = 50,
-  y = 54,
+  x = 56,
+  y = 56,
   w = 22,
-  h = 47,
+  h = 48,
   desc = "",
   activate = function(self, game)
     local weight = 62000 + game:inv_weight()

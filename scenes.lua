@@ -9,6 +9,7 @@ local color_box = require "scenes.color_box"
 local color_box_open = require "scenes.color_box_open"
 local radio = require "scenes.radio"
 local piano = require "scenes.piano"
+local bathroom = require "scenes.bathroom"
 
 local scenes = {
   start = start,
@@ -19,7 +20,8 @@ local scenes = {
   color_box = color_box,
   color_box_open = color_box_open,
   radio = radio,
-  piano = piano
+  piano = piano,
+  bathroom = bathroom
 }
 
 for _, scene in pairs(scenes) do
