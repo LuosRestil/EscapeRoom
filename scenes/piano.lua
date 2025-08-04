@@ -8,7 +8,7 @@ local piano = {
   code = { 0, 0, 0, 0 },
   items = {
     -- c
-    { x = 2,   y = 64, w = 10, h = 35, sound = love.audio.newSource("assets/audio/piano/1.wav", "static"),  idx = 1 },
+    { x = 2,   y = 64, w = 17, h = 35, sound = love.audio.newSource("assets/audio/piano/1.wav", "static"),  idx = 1 },
     -- c#
     { x = 15,  y = 36, w = 9,  h = 28, sound = love.audio.newSource("assets/audio/piano/2.wav", "static"),  idx = 2 },
     -- d
