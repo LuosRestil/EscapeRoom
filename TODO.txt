@@ -1,9 +1,8 @@
 -- bathroom
     -- starts off locked, message mentions looking through the keyhole, which is blocked
-    -- newspaper item, pencil item
-    -- newspaper item used on door puts paper under door
-    -- pencil item used on door while newspaper item is under door puts key onto newspaper
-    -- clicking newspaper while key on it takes key and removes newspaper
+    -- sheet music item used on door puts paper under door
+    -- pencil item used on door while sheet music item is under door puts key onto sheet music
+    -- clicking sheet music while key on it takes key and removes sheet music
 
 -- scale puzzle, don't do locker. just use item on scale.
     -- lock is series of item images, and somewhere else is a clue that lists weights

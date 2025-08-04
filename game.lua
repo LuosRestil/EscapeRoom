@@ -130,6 +130,15 @@ function game:close_inv()
   ptr.y = inv.by + 6
 end
 
+function game:remove_item_from_inventory(item_name)
+  for i, item in ipairs(inv.items) do
+    if item.name == item_name then
+      table.remove(inv.items, i)
+      return
+    end
+  end
+end
+
 function game:navigate(scene_name)
   self.current_scene = scenes[scene_name]
   ptr.x, ptr.y = 64, 64

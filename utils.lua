@@ -9,6 +9,11 @@ function utils.load_img(path)
   return img
 end
 
+function utils.load_quad(img_path, x, y, w, h)
+  local img = utils.load_img(img_path)
+  return love.graphics.newQuad(x, y, w, h, img)
+end
+
 function utils.clamp(val, low, high)
   if val < low then
     return low
