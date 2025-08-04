@@ -146,14 +146,25 @@ function game:pickup(item)
   -- sfx(1)
   table.insert(inv.items, item)
   local scene_items = self.current_scene.items
-  -- remove item from scene
-  for i, scene_item in ipairs(scene_items) do
-    if scene_item == item then
-      table.remove(self.current_scene.items, i)
-      break
+  game:remove_item_from_items(self.current_scene.items, item.name)
+  self.msg = "got " .. item.name .. "!"
+end
+
+function game:remove_item_from_items(items, item_name)
+  for i, item in ipairs(items) do
+    if item.name == item_name then
+      table.remove(items, i)
+      return
     end
   end
-  self.msg = "got " .. item.name .. "!"
+end
+
+function game:remove_item_from_scene(scene_name, item_name)
+  for name, scene in pairs(scenes) do
+    if name == scene_name then
+      game:remove_item_from_items(scene.items, item_name)
+    end
+  end
 end
 
 function game:inv_weight()

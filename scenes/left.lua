@@ -8,7 +8,19 @@ local left = {
   right = "start",
   img = utils.load_img("assets/imgs/scenes/bookshelf_room.png"),
   items = {
-    { x = 18, y = 33, w = 38, h = 65, activate = function(self, game) game:navigate("bathroom") end }
+    -- lock (must come before door, as hitboxes overlap)
+    {
+      x = 44,
+      y = 60,
+      w = 3,
+      h = 13,
+      activate = function(self, game)
+        game.msg = "clicked lock"
+      end
+    },
+    -- door
+    { x = 15, y = 34, w = 36, h = 64, activate = function(self, game) game:navigate("bathroom") end },
+
     -- scale, secret_door_closed, secret_door_open, pressure_plate,
   }
 }
