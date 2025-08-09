@@ -15,6 +15,7 @@ game.inv_open = false
 game.msg = nil
 game.debug_mode = false
 game.mouse_mode = false
+game.mouse_down = false
 
 --measuring stuff with the mouse in debug mode
 game.dragging = false
@@ -76,10 +77,10 @@ function game:draw()
         love.graphics.setColor(colors.pink)
         love.graphics.rectangle("line", game.drag_start.x, game.drag_start.y, w, h)
         love.graphics.setColor(colors.orange)
-        love.graphics.print("x=" ..
-          game.drag_start.x ..
+        love.graphics.print("x=" .. game.drag_start.x ..
           ",y=" .. game.drag_start.y ..
-          " w=" .. game.drag_end.x - game.drag_start.x .. ",h=" .. game.drag_end.y - game.drag_start.y, 25, 0)
+          " w=" .. game.drag_end.x - game.drag_start.x ..
+          ",h=" .. game.drag_end.y - game.drag_start.y, 25, 0)
       end
       love.graphics.setColor(1, 1, 1, 1)
     end
@@ -201,6 +202,14 @@ function game:handle_mouse(scale)
   local game_x, game_y = math.floor(love.mouse.getX() / scale), math.floor(love.mouse.getY() / scale)
   ptr:set(game_x, game_y)
   if love.mouse.isDown(1) then
+    if not self.mouse_down then -- new click
+      if self.hovered_item ~= nil then
+        self.hovered_item:activate(self)
+        self.active_item = nil
+      end
+    end
+    self.mouse_down = true
+
     if not game.dragging then
       game.dragging = true
       game.drag_end = nil
@@ -212,6 +221,7 @@ function game:handle_mouse(scale)
     if game.dragging then
       game.dragging = false
     end
+    self.mouse_down = false
   end
 end
 

@@ -25,6 +25,10 @@ function item:draw_ptr(ptr, hovering)
   utils.rectfill(x, ptr.y - 1, 1, 1, colors.yellow)
 end
 
-function item:activate() end
+function item:activate(game)
+  if self.desc ~= nil then
+    game.msg = self.desc
+  end
+end
 
 return item

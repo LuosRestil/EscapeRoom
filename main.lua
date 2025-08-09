@@ -12,6 +12,7 @@ function love.load()
   font:setLineHeight(1.125)
   love.graphics.setFont(font)
   game:navigate("start")
+  love.mouse.setVisible(false)
 end
 
 function love.update(dt)
@@ -20,7 +21,7 @@ function love.update(dt)
     frametime = frametime - framerate
     game:update()
 
-    if game.debug_mode and game.mouse_mode then
+    if game.mouse_mode then
       game:handle_mouse(display.scale)
     end
   end
