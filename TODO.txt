@@ -1,11 +1,20 @@
+-- what's in the color box?
+-- what does solving the piano do?
+
+-- navigation sfx
+-- msg sfx
+-- key falling sound
+-- putting down paper sound
+-- toilet flush 
+-- color box button click sound and open sound
+
 -- scale puzzle
--- scale puzzle, don't do locker. just use item on scale.
-    -- lock is series of item images, and somewhere else is a clue that lists weights
+-- don't do locker. just use item on scale.
+    -- lock is series of item images?, and somewhere else is a clue that lists weights
     -- maybe there's a picture of scales on the box/door/whatever to indicate that this is where that's used
     -- example: 128, 2486, 93, 75 -> weights of hat, cat, cup, pencil, whatever
     -- maybe not images, like a lock box, but platforms, pressure plates, where items must be placed
 
--- make books clickable
 -- animate radio dial when buttons are clicked (maybe calculate a percentage value between "    " and "zzzz")
 -- animate sound waves / music notes when the radio is on
 -- tweak all the messages

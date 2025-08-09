@@ -107,7 +107,7 @@ function game:keypressed(key, scancode, is_repeat)
     end
     if scancode == "z" then
       self.active_item = inv.items[inv.selected_idx]
-      if self.active_item ~= nil then self:play_sound("inv_select") end
+
       self:close_inv()
     end
     if scancode == "x" then
@@ -131,7 +131,11 @@ end
 
 function game:close_inv()
   self.inv_open = false
-  self:play_sound("inv_close")
+  if self.active_item ~= nil then
+    self:play_sound("inv_select")
+  else
+    self:play_sound("inv_close")
+  end
   ptr.x = inv.x + (inv.selected_idx - 1) * 11 + 6
   ptr.y = inv.by + 6
 end
