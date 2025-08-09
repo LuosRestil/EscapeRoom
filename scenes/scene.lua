@@ -12,7 +12,7 @@ end
 
 function scene:hover(ptr, game)
   for _, item in ipairs(self.items) do
-    if not item.hidden and utils.ptr_colliding(ptr, item) then
+    if not item.hidden and item.w ~= nil and utils.ptr_colliding(ptr, item) then
       game.hovered_item = item
       return
     end

@@ -11,7 +11,7 @@ function love.load()
   font = love.graphics.newFont("assets/fonts/PICO-8/PICO-8.ttf", 5)
   font:setLineHeight(1.125)
   love.graphics.setFont(font)
-  game:navigate("bathroom")
+  game:navigate("start")
   love.mouse.setVisible(false)
   game:play_sound("bg_music")
 end

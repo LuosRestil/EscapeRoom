@@ -1,5 +1,8 @@
 -- what's in the color box?
 -- what does solving the piano do?
+-- what's in the grate?
+    + maybe this is the key? must have fallen through a vent upstairs and blown in here until it got stuck in the spider web.
+-- update game:wrong_item to take custom message, update all wrong_item use accordingly
 
 -- navigation sfx
 -- msg sfx

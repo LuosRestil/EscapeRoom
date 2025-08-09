@@ -1,10 +1,6 @@
 local sheet_music_inv = require "items.right.sheet_music_inv"
 local bathroom_key = require "items.right.bathroom_key"
 local utils = require "utils"
--- local secret_door_open = require "items/left/secret_door_open"
--- local secret_door_closed = require "items/left/secret_door_closed"
--- local scale = require "items/left/scale"
--- local pressure_plate = require "items/left/pressure_plate"
 
 local books = {
   -- top shelf
