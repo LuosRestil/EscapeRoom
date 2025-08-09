@@ -7,8 +7,8 @@ local grate_lit = {
     -- key
     {
       name = "key",
-      x = 60,
-      y = 100,
+      x = 42,
+      y = 87,
       w = 8,
       h = 6,
       weight = 25,
