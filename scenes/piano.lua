@@ -43,6 +43,10 @@ local piano = {
   end
 }
 
+for _, item in ipairs(piano.items) do
+  item.sound:setVolume(0.3)
+end
+
 local function activate(self, game)
   for _, item in ipairs(piano.items) do
     item.sound:stop()

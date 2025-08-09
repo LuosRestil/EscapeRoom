@@ -6,6 +6,7 @@ local dialog = require "dialog"
 local scenes = require "scenes"
 local utils = require "utils"
 local colors = require "colors"
+local sounds = require "sounds"
 
 local NAV_AREAS = { "nav_left", "nav_right", "nav_back" }
 
@@ -97,13 +98,16 @@ function game:keypressed(key, scancode, is_repeat)
 
   if self.inv_open then
     if scancode == "left" and inv.selected_idx > 1 then
+      self:play_sound("inv_move")
       inv.selected_idx = inv.selected_idx - 1
     end
     if scancode == "right" and inv.selected_idx < 10 then
       inv.selected_idx = inv.selected_idx + 1
+      self:play_sound("inv_move")
     end
     if scancode == "z" then
       self.active_item = inv.items[inv.selected_idx]
+      if self.active_item ~= nil then self:play_sound("inv_select") end
       self:close_inv()
     end
     if scancode == "x" then
@@ -120,13 +124,14 @@ function game:keypressed(key, scancode, is_repeat)
 end
 
 function game:open_inv()
-  game.inv_open = true
-  -- sfx(4)
-  game.hovered_item = nil
+  self.inv_open = true
+  self.hovered_item = nil
+  self:play_sound("inv_open")
 end
 
 function game:close_inv()
   self.inv_open = false
+  self:play_sound("inv_close")
   ptr.x = inv.x + (inv.selected_idx - 1) * 11 + 6
   ptr.y = inv.by + 6
 end
@@ -148,15 +153,15 @@ function game:navigate(scene_name)
 end
 
 function game:wrong_item(action)
-  --sfx(0)
+  self:play_sound("no")
   self.msg = "you can't " .. action .. "\nwith a " .. self.active_item.name
 end
 
 function game:pickup(item)
-  -- sfx(1)
   table.insert(inv.items, item)
   local scene_items = self.current_scene.items
-  game:remove_item_from_items(self.current_scene.items, item.name)
+  self:remove_item_from_items(self.current_scene.items, item.name)
+  self:play_sound("pickup")
   self.msg = "got " .. item.name .. "!"
 end
 
@@ -222,6 +227,19 @@ function game:handle_mouse(scale)
       game.dragging = false
     end
     self.mouse_down = false
+  end
+end
+
+function game:stop_sound(sound_name)
+  local sound = sounds[sound_name]
+  if sound ~= nil then sound:stop() end
+end
+
+function game:play_sound(sound_name)
+  local sound = sounds[sound_name]
+  if sound ~= nil then
+    if sound:isPlaying() then sound:stop() end
+    sound:play()
   end
 end
 

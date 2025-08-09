@@ -3,8 +3,10 @@ local colors = require "colors"
 
 local static = love.audio.newSource("assets/audio/radio/static.ogg", "stream")
 static:setLooping(true)
+static:setVolume(0.4)
 local song = love.audio.newSource("assets/audio/radio/song.ogg", "stream")
 song:setLooping(true)
+song:setVolume(0.3)
 
 local solution = utils.map(utils.split_str("krlc"), string.byte)
 local naughty_words = { "shit", "fuck", "dick", "cunt" }
@@ -72,9 +74,11 @@ table.insert(radio.items, {
   activate = function(self, game)
     radio.on = not radio.on
     if radio.on then
+      game:stop_sound("bg_music")
       radio.sound:play()
     else
       radio.sound:stop()
+      game:play_sound("bg_music")
     end
   end
 })

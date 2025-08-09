@@ -1,0 +1,13 @@
+local sounds = {
+  bg_music = love.audio.newSource("assets/audio/bg_music.wav", "stream"),
+  inv_close = love.audio.newSource("assets/audio/sfx/inv_close.wav", "static"),
+  inv_move = love.audio.newSource("assets/audio/sfx/inv_move.wav", "static"),
+  inv_open = love.audio.newSource("assets/audio/sfx/inv_open.wav", "static"),
+  inv_select = love.audio.newSource("assets/audio/sfx/inv_select.wav", "static"),
+  pickup = love.audio.newSource("assets/audio/sfx/pickup.wav", "static"),
+  no = love.audio.newSource("assets/audio/sfx/no.wav", "static"),
+}
+
+sounds.bg_music:setLooping(true)
+
+return sounds

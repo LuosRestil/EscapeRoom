@@ -13,6 +13,7 @@ function love.load()
   love.graphics.setFont(font)
   game:navigate("start")
   love.mouse.setVisible(false)
+  game:play_sound("bg_music")
 end
 
 function love.update(dt)
