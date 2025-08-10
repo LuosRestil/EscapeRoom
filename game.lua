@@ -65,7 +65,7 @@ function game:draw()
     if self.debug_mode then
       love.graphics.setColor(255, 0, 0);
       for _, item in ipairs(self.current_scene.items) do
-        if item.w == nil then goto continue end
+        if item.w == nil or item.hidden then goto continue end
         love.graphics.rectangle("line", item.x, item.y, item.w, item.h)
         ::continue::
       end
@@ -163,10 +163,13 @@ function game:wrong_item(action)
   self.msg = "you can't " .. action .. "\nwith a " .. self.active_item.name
 end
 
-function game:pickup(item)
+function game:pickup(item, remove_from_scene)
+  if remove_from_scene == nil then remove_from_scene = true end
   table.insert(inv.items, item)
-  local scene_items = self.current_scene.items
-  self:remove_item_from_items(self.current_scene.items, item.name)
+  if remove_from_scene then
+    local scene_items = self.current_scene.items
+    self:remove_item_from_items(self.current_scene.items, item.name)
+  end
   self:play_sound("pickup")
   self.msg = "got " .. item.name .. "!"
 end

@@ -1,4 +1,3 @@
-local bulb = require "items.right.bulb"
 local burger = require "items.right.burger"
 local car = require "items.right.car"
 local flower = require "items.right.flower"
@@ -13,7 +12,7 @@ local utils = require "utils"
 local right = {
   left = "start",
   img = utils.load_img("assets/imgs/scenes/right.png"),
-  items = { bulb, burger, car, flower, hat, rabbit, screwdriver, tea, binoculars,
+  items = { burger, car, flower, hat, rabbit, screwdriver, tea, binoculars,
     {
       name = "color_box",
       img = utils.load_img("assets/imgs/items/color_box.png"),

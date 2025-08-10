@@ -68,6 +68,31 @@ local start = {
         game:navigate("grate_lit")
       end
     },
+    {
+      name = "rug",
+      x = 39,
+      y = 101,
+      w = 62,
+      h = 9,
+      img = utils.load_img("assets/imgs/items/rug.png"),
+      activate = function(self, game)
+        game.msg = "throwing aside the rug\nreveals a ladder\nleading to a cellar."
+        game:scene_toggle_item_hidden("start", self.name)
+        game:scene_toggle_item_hidden("start", "hole")
+      end
+    },
+    {
+      name = "hole",
+      x = 47,
+      y = 103,
+      w = 44,
+      h = 5,
+      img = utils.load_img("assets/imgs/items/basement_hole.png"),
+      activate = function(self, game)
+        game:navigate("basement")
+      end,
+      hidden = true
+    },
     pencil
   },
 }
