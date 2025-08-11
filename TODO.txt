@@ -2,17 +2,20 @@
 -- what does solving the piano do?
 -- update game:wrong_item to take custom message, update all wrong_item use accordingly
 
+-- second basement room, this will hold the secret passage that is opened by the piano puzzle, as well as the weights puzzle
+
 items you need:
-- screwdriver <- binoculars
+- screwdriver
 - binoculars
 ✅ matches <- bathroom key
 ✅ pencil
 ✅ sheet music
 ✅ bathroom key <- sheet music && pencil
 ✅ main key <- screwdriver && matches
-* this is a complete dependency graph, there's no place for the scale puzzle. have to add another step between items.
 
-the basement light bulb is one of the required items for the weight puzzle. but taking it turns the basement dark, and you have to blindly click the ladder to get out. you can blindly put the bulb back as well in order to see.
+the basement light bulb is one of the required items for the weight puzzle. but taking it turns the basement dark, and you have to blindly click the ladder to get out.
+
+
 
 
 -- navigation sfx

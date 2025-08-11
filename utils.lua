@@ -117,4 +117,8 @@ function utils.map(list, func)
   return new_list
 end
 
+function utils.draw_darkness()
+  utils.rectfill(0, 0, 128, 128, colors.black)
+end
+
 return utils

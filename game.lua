@@ -23,6 +23,9 @@ game.dragging = false
 game.drag_start = nil
 game.drag_end = nil
 
+-- room specific state
+game.basement_bulb_taken = false
+
 function game:update()
   self.hovered_item = nil
   if self.inv_open then return end
@@ -250,6 +253,18 @@ function game:play_sound(sound_name)
     if sound:isPlaying() then sound:stop() end
     sound:play()
   end
+end
+
+function game:take_bulb()
+  scenes["basement"].draw = utils.draw_darkness
+  scenes["weight_room"].draw = utils.draw_darkness
+  self.bulb_taken = true
+end
+
+function game:replace_bulb()
+  scenes["basement"].draw = nil
+  scenes["weight_room"].draw = nil
+  self.bulb_taken = false
 end
 
 return game
