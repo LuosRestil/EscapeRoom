@@ -57,6 +57,7 @@ basement.items = {
     h = 16,
     hidden = true,
     activate = function(self, game)
+      game.msg = "todo: something\nin the hole"
       -- TODO take whatever item
     end
   },
