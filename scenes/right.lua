@@ -66,7 +66,7 @@ local right = {
           game:remove_item_from_inventory("sheet music")
         else
           game:wrong_item("")
-          game.msg = "that doesn't got there"
+          game.msg = "that doesn't go there"
         end
       end
     },

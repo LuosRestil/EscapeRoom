@@ -20,6 +20,7 @@ local color_box_open = {
   back = "start",
   img = utils.load_img("assets/imgs/scenes/color_box_open.png"),
   items = {
+    rabbit,
     { x = 22, y = 81, num = 8, draw = draw },
     { x = 58, y = 81, num = 7, draw = draw },
     { x = 94, y = 81, num = 6, draw = draw },

@@ -1,7 +1,7 @@
 -- weight box
 -- move sheet music
 
--- update game:wrong_item to take custom message, update all wrong_item use accordingly
+-- update game:wrong_item to take custom message, update all wrong_item use accordingly (message doesn't work for everything, like "you can't <action> with a <ice block tongs>")
 
 -- second basement room, this will hold the secret passage that is opened by the piano puzzle, as well as the weights puzzle
 
