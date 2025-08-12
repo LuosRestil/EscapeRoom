@@ -1,6 +1,18 @@
-local sheet_music_inv = require "items.right.sheet_music_inv"
-local bathroom_key = require "items.right.bathroom_key"
 local utils = require "utils"
+
+local sheet_music_inv = {
+  name = "sheet music",
+  weight = 33,
+  desc = "\"moonlight sonata\"",
+  img = utils.load_img("assets/imgs/items/sheet_music_inv.png"),
+}
+
+local key = {
+  name = "bathroom key",
+  weight = 25,
+  desc = "opens the bathroom door.",
+  img = utils.load_img("assets/imgs/items/bathroom_key.png"),
+}
 
 local books = {
   -- top shelf
@@ -51,7 +63,7 @@ local left = {
   door_locked = true,
   paper_on_floor = false,
   key_pushed = false,
-  items = {}
+  items = { sheet_music_inv, key }
 }
 
 for _, book in ipairs(books) do
@@ -70,7 +82,7 @@ local paper_on_floor = {
     game:remove_item_from_scene("left", self.name)
     left.paper_on_floor = false
     if left.key_pushed then
-      game:pickup(bathroom_key)
+      game:pickup(key)
     else
       game:pickup(sheet_music_inv)
     end
@@ -103,7 +115,7 @@ table.insert(left.items, {
         game.msg = "you try to look\nthrough the keyhole\nbut something is\nblocking it from\nthe other side."
       end
     else -- holding an item
-      if game.active_item.name == "pencil" then
+      if game.active_item.name == "hatpin" then
         if left.paper_on_floor then
           left.key_pushed = true
           game.msg = "you push the object\nout of the keyhole\nand it falls onto\nthe sheet music below."
@@ -117,6 +129,7 @@ table.insert(left.items, {
         game:remove_item_from_inventory("bathroom key")
         game:remove_item_from_scene("left", self.name)
       else
+        game:wrong_item("")
         game.msg = "that doesn't fit in\nthe keyhole."
       end
     end
@@ -142,6 +155,7 @@ table.insert(left.items, {
       left.paper_on_floor = true
       table.insert(left.items, paper_on_floor)
     else
+      game:wrong_item("")
       game.msg = "you rub the " .. game.active_item.name .. "\non the door.\n\"open sesame!\"\nit doesn't work."
     end
   end

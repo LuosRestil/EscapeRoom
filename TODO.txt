@@ -1,5 +1,6 @@
--- what's in the color box?
--- what does solving the piano do?
+-- weight box
+-- move sheet music
+
 -- update game:wrong_item to take custom message, update all wrong_item use accordingly
 
 -- second basement room, this will hold the secret passage that is opened by the piano puzzle, as well as the weights puzzle
