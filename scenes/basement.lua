@@ -2,7 +2,6 @@ local utils = require "utils"
 local colors = require "colors"
 
 local basement = {
-  right = "weight_room",
   img = utils.load_img("assets/imgs/scenes/basement.png"),
   items = {
     -- ladder
@@ -32,26 +31,15 @@ local basement = {
         elseif game.active_item.name == "ice block tongs" then
           game:remove_item_from_inventory("ice block tongs")
           game:scene_toggle_item_hidden("basement", self.name)
-          game:scene_toggle_item_hidden("basement", "brick hole")
+          game:scene_toggle_item_hidden("basement", "hat")
+          game:scene_toggle_item_hidden("basement", "hatpin")
+          game.msg = "you remove the brick to\nreveal a lady's hat\nand a hatpin."
         else
           game:wrong_item("pull a brick")
         end
       end,
       draw = function(self)
         utils.rectfill(self.x, self.y, self.w + 1, self.h + 1, colors.navy)
-      end
-    },
-    -- hole
-    {
-      name = "brick hole",
-      x = 11,
-      y = 82,
-      w = 36,
-      h = 16,
-      hidden = true,
-      activate = function(self, game)
-        game.msg = "todo: something\nin the hole"
-        -- TODO take whatever item
       end
     },
     -- light bulb
@@ -80,6 +68,37 @@ local basement = {
         end
       end
     },
+    {
+      name = "hat",
+      x = 16,
+      y = 95,
+      w = 8,
+      h = 4,
+      weight = 308,
+      desc = "keeps the sun out of\nyour eyes, and ever\nso fabulously.",
+      img = utils.load_img("assets/imgs/items/hat.png"),
+      img_offset_y = -2,
+      activate = function(self, game)
+        game:pickup(self)
+      end,
+      hidden = true
+    },
+    {
+      name = "hatpin",
+      x = 30,
+      y = 93,
+      w = 6,
+      h = 6,
+      weight = 12,
+      desc = "long, then, and sharp.",
+      img = utils.load_img("assets/imgs/items/hatpin.png"),
+      img_offset_y = -1,
+      img_offset_x = -1,
+      activate = function(self, game)
+        game:pickup(self)
+      end,
+      hidden = true
+    }
   }
 }
 

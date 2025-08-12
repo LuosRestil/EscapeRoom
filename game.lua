@@ -257,13 +257,11 @@ end
 
 function game:take_bulb()
   scenes["basement"].draw = utils.draw_darkness
-  scenes["weight_room"].draw = utils.draw_darkness
   self.bulb_taken = true
 end
 
 function game:replace_bulb()
   scenes["basement"].draw = nil
-  scenes["weight_room"].draw = nil
   self.bulb_taken = false
 end
 
