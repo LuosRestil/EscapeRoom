@@ -37,6 +37,7 @@ local kitchen = {
         utils.rectfill(self.x, self.y, self.w + 1, self.h + 1, colors.light_grey)
       end
     },
+
     ice_block_tongs
   }
 }

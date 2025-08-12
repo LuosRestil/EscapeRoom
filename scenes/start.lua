@@ -93,6 +93,30 @@ local start = {
       end,
       hidden = true
     },
+    {
+      name = "color_box",
+      img = utils.load_img("assets/imgs/items/color_box.png"),
+      x = 96,
+      y = 84,
+      w = 23,
+      h = 14,
+      img_offset_y = -6,
+      activate = function(self, game)
+        game:navigate("color_box")
+      end
+    },
+    {
+      name = "color_box_open",
+      img = utils.load_img("assets/imgs/items/color_box_open.png"),
+      hidden = true,
+      x = 96,
+      y = 84,
+      w = 22,
+      h = 21,
+      activate = function(self, game)
+        game:navigate("color_box_open")
+      end
+    },
     pencil
   },
 }

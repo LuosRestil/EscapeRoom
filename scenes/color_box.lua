@@ -4,7 +4,7 @@ local colors = require "colors"
 local solution = { 8, 7, 6 }
 
 local color_box = {
-  back = "right",
+  back = "start",
   img = utils.load_img("assets/imgs/scenes/color_box.png"),
   items = { -- buttons
     { x = 22, y = 99,  idx = 1, amt = 1 },
@@ -23,7 +23,7 @@ local color_box = {
       -- play sound
     end
   end,
-  draw2 = function(self)
+  draw_after = function(self)
     utils.rectfill(44, 42, 39, 9, colors.orange)
     utils.print("ex libris", 45, 44, colors.dark_grey)
     utils.print("ex libris", 46, 43, colors.dark_grey)

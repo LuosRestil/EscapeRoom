@@ -51,10 +51,7 @@ local left = {
   door_locked = true,
   paper_on_floor = false,
   key_pushed = false,
-  items = {
-    -- scale, secret_door_closed, secret_door_open, pressure_plate,
-    { x = 100, y = 100, w = 15, h = 15, desc = "shitfuck" }
-  }
+  items = {}
 }
 
 for _, book in ipairs(books) do

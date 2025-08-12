@@ -13,7 +13,6 @@ local piano = require "scenes.piano"
 local bathroom = require "scenes.bathroom"
 local basement = require "scenes.basement"
 local kitchen = require "scenes.kitchen"
-local weight_room = require "scenes.weight_room"
 
 local scenes = {
   start = start,
@@ -29,7 +28,6 @@ local scenes = {
   bathroom = bathroom,
   basement = basement,
   kitchen = kitchen,
-  weight_room = weight_room
 }
 
 for _, scene in pairs(scenes) do

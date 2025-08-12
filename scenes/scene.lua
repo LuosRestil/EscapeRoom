@@ -4,7 +4,7 @@ local scene = {}
 
 function scene:draw()
   love.graphics.draw(self.img, 0, 0)
-  if self.draw2 ~= nil then self:draw2() end
+  if self.draw_after ~= nil then self:draw_after() end
   for _, item in ipairs(self.items) do
     if not item.hidden then item:draw() end
   end
