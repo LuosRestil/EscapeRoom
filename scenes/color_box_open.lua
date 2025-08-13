@@ -2,7 +2,7 @@ local utils = require "utils"
 
 local rabbit = {
   name = "toy rabbit",
-  weight = 290,
+  weight = 291,
   desc = "a stuffed rabbit. the\ntag reads \"shrodinger\".",
   img = utils.load_img("assets/imgs/items/rabbit.png"),
 }
@@ -33,7 +33,6 @@ local color_box_open = {
       img = utils.load_img("assets/imgs/items/color_box_ears.png"),
       activate = function(self, game)
         game:pickup(rabbit)
-        game.rabbit_taken = true
         game:remove_item_from_scene("color_box_open", self.name)
         game:remove_item_from_scene("start", "ears")
       end

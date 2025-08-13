@@ -8,7 +8,20 @@ local sheet_music_inv = {
   img = utils.load_img("assets/imgs/items/sheet_music_inv.png"),
 }
 
+local targets = { 42, 291, 5 } -- bulb, rabbit, pencil
 local weight_slots = { {}, {}, {} }
+
+local function check_weights(game)
+  if
+      weight_slots[1].weight == targets[1] and
+      weight_slots[2].weight == targets[2] and
+      weight_slots[3].weight == targets[3]
+  then
+    game:scene_toggle_item_hidden("right", "binoculars")
+    game:scene_toggle_item_hidden("right", "weight box door")
+    game:scene_toggle_item_hidden("right", "weight box door open")
+  end
+end
 
 local function drop_zone_activate(self, game)
   -- item already in drop zone, pick it up
@@ -21,6 +34,7 @@ local function drop_zone_activate(self, game)
     weight_slots[self.idx] = game.active_item
     game:remove_item_from_inventory(game.active_item.name)
   end
+  check_weights(game)
 end
 
 local function drop_zone_draw(self)
@@ -30,9 +44,7 @@ local function drop_zone_draw(self)
     local offset_y = item.img_offset_y ~= nil and item.img_offset_y or 0
     love.graphics.draw(item.img, self.x + offset_x + 2, self.y + offset_y - 2)
   end
-  local text_offset_x = 2
-  if self.target > 99 then text_offset_x = 0 end
-  utils.print(self.target, self.x + text_offset_x, self.y - 8, colors.yellow)
+  utils.print(targets[self.idx], self.x + self.text_offset, self.y - 8, colors.yellow)
 end
 
 local right = {
@@ -113,32 +125,35 @@ local right = {
     },
     -- drop zones
     {
+      -- bulb slot
       x = 77,
       y = 67,
       w = 11,
       h = 5,
       idx = 1,
-      target = 42, -- light bulb
+      text_offset = 2,
       activate = drop_zone_activate,
       draw = drop_zone_draw
     },
     {
+      -- rabbit slot
       x = 93,
       y = 67,
       w = 11,
       h = 5,
       idx = 2,
-      target = 290, -- rabbit
+      text_offset = 0,
       activate = drop_zone_activate,
       draw = drop_zone_draw
     },
     {
+      -- pencil slot
       x = 109,
       y = 67,
       w = 11,
       h = 5,
       idx = 3,
-      target = 67,
+      text_offset = 4,
       activate = drop_zone_activate,
       draw = drop_zone_draw
     },
@@ -155,7 +170,24 @@ local right = {
       img_offset_y = -1,
       activate = function(self, game)
         game:pickup(self)
-      end
+      end,
+      hidden = true
+    },
+    {
+      name = "weight box door",
+      desc = "the door doesn't budge",
+      x = 91,
+      y = 80,
+      w = 15,
+      h = 14,
+      img = utils.load_img("assets/imgs/items/weight_box_door_small.png")
+    },
+    {
+      name = "weight box door open",
+      x = 83,
+      y = 80,
+      img = utils.load_img("assets/imgs/items/weight_box_door_open_small.png"),
+      hidden = true
     },
     sheet_music_inv,
   }

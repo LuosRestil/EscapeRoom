@@ -2,7 +2,7 @@ local utils = require "utils"
 
 local pencil = {
   name = "pencil",
-  weight = 9,
+  weight = 5,
   desc = "2b or not 2b?\nthat is the pencil.",
   img = utils.load_img("assets/imgs/items/pencil.png"),
 }
