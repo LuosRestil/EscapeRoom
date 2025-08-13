@@ -10,8 +10,10 @@ local sheet_music_inv = {
 
 local targets = { 42, 291, 5 } -- bulb, rabbit, pencil
 local weight_slots = { {}, {}, {} }
+local weight_box_open = false
 
 local function check_weights(game)
+  if weight_box_open then return end
   if
       weight_slots[1].weight == targets[1] and
       weight_slots[2].weight == targets[2] and
@@ -20,6 +22,7 @@ local function check_weights(game)
     game:scene_toggle_item_hidden("right", "binoculars")
     game:scene_toggle_item_hidden("right", "weight box door")
     game:scene_toggle_item_hidden("right", "weight box door open")
+    weight_box_open = true
   end
 end
 
