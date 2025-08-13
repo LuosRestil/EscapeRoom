@@ -1,4 +1,5 @@
 local utils = require "utils"
+local colors = require "colors"
 
 local sheet_music_inv = {
   name = "sheet music",
@@ -6,6 +7,33 @@ local sheet_music_inv = {
   desc = "\"moonlight sonata\"",
   img = utils.load_img("assets/imgs/items/sheet_music_inv.png"),
 }
+
+local weight_slots = { {}, {}, {} }
+
+local function drop_zone_activate(self, game)
+  -- item already in drop zone, pick it up
+  if weight_slots[self.idx].name ~= nil then
+    game:pickup(weight_slots[self.idx])
+    weight_slots[self.idx] = {}
+  elseif game.active_item == nil then
+    game.msg = "a metal plate mounted\nonto a large box with\na door on the front."
+  else
+    weight_slots[self.idx] = game.active_item
+    game:remove_item_from_inventory(game.active_item.name)
+  end
+end
+
+local function drop_zone_draw(self)
+  local item = weight_slots[self.idx]
+  if item.img ~= nil then
+    local offset_x = item.img_offset_x ~= nil and item.img_offset_x or 0
+    local offset_y = item.img_offset_y ~= nil and item.img_offset_y or 0
+    love.graphics.draw(item.img, self.x + offset_x + 2, self.y + offset_y - 2)
+  end
+  local text_offset_x = 2
+  if self.target > 99 then text_offset_x = 0 end
+  utils.print(self.target, self.x + text_offset_x, self.y - 8, colors.yellow)
+end
 
 local right = {
   left = "start",
@@ -21,8 +49,7 @@ local right = {
         if game.active_item == nil then
           game.msg = "such a lovely day\noutside. what a shame\nyou're trapped in here."
         elseif game.active_item.name == "binoculars" then
-          game.msg =
-          "through the binoculars, you\nsee the banner is an \nadvertisement for a radio\nstation, \"101.1 krlc\"" --TODO full text
+          game.msg = "through the binoculars, you\nsee an airplane flying\na banner advertisement\n\"101.1 krlc\""
         else
           game:wrong_item("")
           game.msg = "i'm not sure what that\nwould accomplish."
@@ -84,7 +111,53 @@ local right = {
       end,
       hidden = true
     },
-    sheet_music_inv
+    -- drop zones
+    {
+      x = 77,
+      y = 67,
+      w = 11,
+      h = 5,
+      idx = 1,
+      target = 42, -- light bulb
+      activate = drop_zone_activate,
+      draw = drop_zone_draw
+    },
+    {
+      x = 93,
+      y = 67,
+      w = 11,
+      h = 5,
+      idx = 2,
+      target = 290, -- rabbit
+      activate = drop_zone_activate,
+      draw = drop_zone_draw
+    },
+    {
+      x = 109,
+      y = 67,
+      w = 11,
+      h = 5,
+      idx = 3,
+      target = 67,
+      activate = drop_zone_activate,
+      draw = drop_zone_draw
+    },
+    {
+      name = "binoculars",
+      x = 96,
+      y = 83,
+      w = 4,
+      h = 7,
+      weight = 2023,
+      desc = "look through the small end",
+      img = utils.load_img("assets/imgs/items/binoculars.png"),
+      img_offset_x = -1,
+      img_offset_y = -1,
+      activate = function(self, game)
+        game:pickup(self)
+      end
+    },
+    sheet_music_inv,
   }
 }
 

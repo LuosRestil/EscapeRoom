@@ -5,7 +5,6 @@ local pencil = {
   weight = 9,
   desc = "2b or not 2b?\nthat is the pencil.",
   img = utils.load_img("assets/imgs/items/pencil.png"),
-  img_offset_y = -2,
 }
 
 local start = {
@@ -94,7 +93,7 @@ local start = {
       hidden = true
     },
     {
-      name = "color_box",
+      name = "color box",
       img = utils.load_img("assets/imgs/items/color_box.png"),
       x = 96,
       y = 84,
@@ -106,16 +105,23 @@ local start = {
       end
     },
     {
-      name = "color_box_open",
+      name = "color box open",
       img = utils.load_img("assets/imgs/items/color_box_open.png"),
       hidden = true,
       x = 96,
-      y = 84,
+      y = 78,
       w = 22,
       h = 21,
       activate = function(self, game)
         game:navigate("color_box_open")
       end
+    },
+    {
+      name = "ears",
+      img = utils.load_img("assets/imgs/items/color_box_ears_small.png"),
+      x = 104,
+      y = 86,
+      hidden = true
     },
     pencil
   },

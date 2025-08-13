@@ -25,6 +25,7 @@ game.drag_end = nil
 
 -- room specific state
 game.basement_bulb_taken = false
+game.rabbit_taken = false
 
 function game:update()
   self.hovered_item = nil

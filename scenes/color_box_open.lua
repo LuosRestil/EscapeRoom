@@ -25,13 +25,17 @@ local color_box_open = {
     { x = 58, y = 81, num = 7, draw = draw },
     { x = 94, y = 81, num = 6, draw = draw },
     {
-      name = "box hole",
-      x = 5,
-      y = 40,
-      w = 117,
-      h = 23,
+      name = "rabbit ears",
+      x = 50,
+      y = 44,
+      w = 35,
+      h = 19,
+      img = utils.load_img("assets/imgs/items/color_box_ears.png"),
       activate = function(self, game)
         game:pickup(rabbit)
+        game.rabbit_taken = true
+        game:remove_item_from_scene("color_box_open", self.name)
+        game:remove_item_from_scene("start", "ears")
       end
     }
   }
