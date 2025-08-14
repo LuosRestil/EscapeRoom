@@ -1,5 +1,4 @@
 -- sounds
-    navigation
     moving rug
     clicking color box button
     color box opening

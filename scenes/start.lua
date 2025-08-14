@@ -78,6 +78,7 @@ local start = {
         game.msg = "throwing aside the rug\nreveals a ladder\nleading to a cellar."
         game:scene_toggle_item_hidden("start", self.name)
         game:scene_toggle_item_hidden("start", "hole")
+        game:play_sound("rugpull")
       end
     },
     {
