@@ -22,6 +22,7 @@ local function check_weights(game)
     game:scene_toggle_item_hidden("right", "binoculars")
     game:scene_toggle_item_hidden("right", "weight box door")
     game:scene_toggle_item_hidden("right", "weight box door open")
+    game:play_sound("open")
     weight_box_open = true
   end
 end

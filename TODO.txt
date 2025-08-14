@@ -1,11 +1,6 @@
 -- sounds
-    moving rug
-    clicking color box button
-    color box opening
-    piano opening
     weight box opening
     placing item on weight box
-    clicking radio power
     opening grate
     placing sheet music on stand/floor
     pushing key out of lock
@@ -38,3 +33,5 @@
 -- tweak all the messages
 
 - title screen, how to play
+
+- it'd be fun to add a broom and dustpan that you could use to sweep up the dust in the basement.

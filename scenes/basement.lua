@@ -34,6 +34,7 @@ local basement = {
           game:scene_toggle_item_hidden("basement", "hat")
           game:scene_toggle_item_hidden("basement", "hatpin")
           game.msg = "you remove the brick to\nreveal a lady's hat\nand a hatpin."
+          game:play_sound("brickpull")
         else
           game:wrong_item("pull a brick")
         end

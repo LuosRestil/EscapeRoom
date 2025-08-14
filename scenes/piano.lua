@@ -2,6 +2,8 @@ local utils = require "utils"
 
 local solution = { 7, 10, 3, 7 }
 
+local is_open = false
+
 local piano = {
   back = "right",
   img = utils.load_img("assets/imgs/scenes/piano.png"),
@@ -33,6 +35,7 @@ local piano = {
     { x = 110, y = 64, w = 17, h = 35, sound = love.audio.newSource("assets/audio/piano/12.wav", "static"), idx = 12 },
   },
   check_code = function(self, game)
+    if is_open then return end
     local is_solution = true
     for i = 1, #solution do
       if self.code[i] ~= solution[i] then is_solution = false end
@@ -41,6 +44,8 @@ local piano = {
       game:scene_toggle_item_hidden("right", "screwdriver")
       game:scene_toggle_item_hidden("right", "piano lid")
       game.msg = "the piano top pops open!"
+      game:play_sound("open")
+      is_open = true
     end
   end
 }

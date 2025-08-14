@@ -72,6 +72,7 @@ table.insert(radio.items, {
   w = 15,
   h = 15,
   activate = function(self, game)
+    game:play_sound("btn_click")
     radio.on = not radio.on
     if radio.on then
       game:stop_sound("bg_music")
@@ -84,6 +85,7 @@ table.insert(radio.items, {
 })
 
 local function activate(self, game)
+  game:play_sound("btn_click")
   assert(radio.code ~= nil)
   radio.code[self.idx] = radio.code[self.idx] + 1
   if radio.code[self.idx] == 33 then radio.code[self.idx] = 97 end

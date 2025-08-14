@@ -7,7 +7,10 @@ local sounds = {
   pickup = love.audio.newSource("assets/audio/sfx/pickup.wav", "static"),
   no = love.audio.newSource("assets/audio/sfx/no.wav", "static"),
   nav = love.audio.newSource("assets/audio/sfx/nav.wav", "static"),
-  rugpull = love.audio.newSource("assets/audio/sfx/rugpull.wav", "static")
+  rugpull = love.audio.newSource("assets/audio/sfx/rugpull.wav", "static"),
+  btn_click = love.audio.newSource("assets/audio/sfx/color_box_btn.wav", "static"),
+  open = love.audio.newSource("assets/audio/sfx/open.wav", "static"),
+  brickpull = love.audio.newSource("assets/audio/sfx/brickpull.wav", "static")
 }
 
 sounds.bg_music:setLooping(true)

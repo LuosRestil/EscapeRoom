@@ -20,8 +20,7 @@ local color_box = {
       game:scene_toggle_item_hidden("start", "color box")
       game:scene_toggle_item_hidden("start", "color box open")
       game:scene_toggle_item_hidden("start", "ears")
-      game:navigate("color_box_open")
-      -- play sound
+      game:navigate("color_box_open", "open")
     end
   end,
   draw_after = function(self)
@@ -35,6 +34,7 @@ local color_box = {
 }
 
 local function activate(self, game)
+  game:play_sound("btn_click")
   color_box.code[self.idx] = color_box.code[self.idx] + self.amt
   if color_box.code[self.idx] == -1 then color_box.code[self.idx] = 9 end
   if color_box.code[self.idx] == 10 then color_box.code[self.idx] = 0 end

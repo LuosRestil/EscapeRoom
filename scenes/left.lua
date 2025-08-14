@@ -36,7 +36,7 @@ local books = {
   { x = 88,  y = 47, w = 4, h = 14, desc = "the alphabet pt. 2" },
   { x = 93,  y = 43, w = 2, h = 18, desc = "the dogan" },
   { x = 96,  y = 45, w = 2, h = 16, desc = "anna karmina burana" },
-  { x = 99,  y = 46, w = 3, h = 15, desc = "birds and other lies" },
+  { x = 99,  y = 46, w = 3, h = 15, desc = "birds and other hoaxes" },
   { x = 103, y = 52, w = 3, h = 9,  desc = "cream and pastryment" },
   { x = 107, y = 48, w = 3, h = 13, desc = "the bobbitt" },
   { x = 111, y = 45, w = 2, h = 16, desc = "jude the obnoxious" },
