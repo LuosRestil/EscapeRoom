@@ -6,6 +6,7 @@ local sounds = {
   inv_select = love.audio.newSource("assets/audio/sfx/inv_select.wav", "static"),
   pickup = love.audio.newSource("assets/audio/sfx/pickup.wav", "static"),
   no = love.audio.newSource("assets/audio/sfx/no.wav", "static"),
+  nav = love.audio.newSource("assets/audio/sfx/nav.wav", "static")
 }
 
 sounds.bg_music:setLooping(true)

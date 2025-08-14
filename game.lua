@@ -154,8 +154,10 @@ function game:remove_item_from_inventory(item_name)
   end
 end
 
-function game:navigate(scene_name)
+function game:navigate(scene_name, sound_name)
+  if sound_name == nil then sound_name = "nav" end
   self.current_scene = scenes[scene_name]
+  self:play_sound(sound_name)
   ptr.x, ptr.y = 64, 64
   self.hovered_item = nil
   self.active_item = nil
