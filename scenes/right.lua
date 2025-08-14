@@ -37,6 +37,7 @@ local function drop_zone_activate(self, game)
   else
     weight_slots[self.idx] = game.active_item
     game:remove_item_from_inventory(game.active_item.name)
+    game:play_sound("weightbox_place_item")
   end
   check_weights(game)
 end

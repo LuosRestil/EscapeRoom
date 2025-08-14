@@ -1,10 +1,7 @@
 -- sounds
-    weight box opening
-    placing item on weight box
     opening grate
     placing sheet music on stand/floor
     pushing key out of lock
-    moving basement brick
 
 -- start screen
 -- end screen

@@ -15,7 +15,7 @@ local grate_open = {
           return
         end
         if game.active_item.name == "matches" then
-          game:navigate("grate_lit")
+          game:navigate("grate_lit", "match")
           game:scene_toggle_item_hidden("start", "grate_open")
           game:scene_toggle_item_hidden("start", "grate_lit")
           return

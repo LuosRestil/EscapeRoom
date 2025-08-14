@@ -18,7 +18,7 @@ for _, screw_loc in ipairs(screw_locs) do
         if game.active_item.name == "screwdriver" then
           game:scene_toggle_item_hidden("start", "grate")
           game:scene_toggle_item_hidden("start", "grate_open")
-          game:navigate("grate_open")
+          game:navigate("grate_open", "open_grate")
           game:remove_item_from_inventory("screwdriver")
         else
           game:wrong_item("turn a screw")
