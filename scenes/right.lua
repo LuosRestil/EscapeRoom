@@ -192,6 +192,28 @@ local right = {
       img = utils.load_img("assets/imgs/items/weight_box_door_open_small.png"),
       hidden = true
     },
+    {
+      name = "piano lid",
+      x = 4,
+      y = 53,
+      img = utils.load_img("assets/imgs/items/piano_lid.png"),
+      hidden = true
+    },
+    {
+      name = "screwdriver",
+      x = 26,
+      y = 52,
+      w = 8,
+      h = 8,
+      weight = 943,
+      desc = "equally useful for\nscrewdriving and\nscrew un-driving.",
+      img = utils.load_img("assets/imgs/items/screwdriver.png"),
+      activate = function(self, game)
+        game:pickup(self)
+        game.msg = "the piano tuner must\nhave left a screwdriver\nin there. finders\nkeepers!"
+      end,
+      hidden = true
+    },
     sheet_music_inv,
   }
 }

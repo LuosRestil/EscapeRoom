@@ -38,7 +38,9 @@ local piano = {
       if self.code[i] ~= solution[i] then is_solution = false end
     end
     if is_solution then
-      game.msg = "solved piano!"
+      game:scene_toggle_item_hidden("right", "screwdriver")
+      game:scene_toggle_item_hidden("right", "piano lid")
+      game.msg = "the piano top pops open!"
     end
   end
 }

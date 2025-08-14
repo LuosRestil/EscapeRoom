@@ -1,26 +1,9 @@
--- weight box
--- move sheet music
+--open piano to get screwdriver
 
 -- update game:wrong_item to take custom message, update all wrong_item use accordingly (message doesn't work for everything, like "you can't <action> with a <ice block tongs>")
 
--- second basement room, this will hold the secret passage that is opened by the piano puzzle, as well as the weights puzzle
-
-items you need:
-- screwdriver
-- binoculars
-✅ matches <- bathroom key
-✅ pencil
-✅ sheet music
-✅ bathroom key <- sheet music && pencil
-✅ main key <- screwdriver && matches
-
-the basement light bulb is one of the required items for the weight puzzle.
-
-piano puzzle reward can't be binoculars, as they are required to solve the piano puzzle. that just leaves pencil, screwdriver, or weight puzzle items.
-maybe the pencil isn't used for the bathroom door. maybe it's an item for the weight puzzle, and the reward of the weight puzzle is a hat with a hat pin, and the hat pin is used for the bathroom door. the matches are the last thing you need to find.
-
-libra pondo
-42 (bulb) 876 (tea) 630 (flower)
+-- more content for kitchen, it's really boring
+-- more content for bathroom?
 
 -- navigation sfx
 -- msg sfx
