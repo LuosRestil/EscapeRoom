@@ -13,7 +13,9 @@ local sounds = {
   brickpull = love.audio.newSource("assets/audio/sfx/brickpull.wav", "static"),
   weightbox_place_item = love.audio.newSource("assets/audio/sfx/weightbox_place_item.wav", "static"),
   open_grate = love.audio.newSource("assets/audio/sfx/open_grate.wav", "static"),
-  match = love.audio.newSource("assets/audio/sfx/match.wav", "static")
+  match = love.audio.newSource("assets/audio/sfx/match.wav", "static"),
+  paper_down = love.audio.newSource("assets/audio/sfx/paper_down.wav", "static"),
+  push_key = love.audio.newSource("assets/audio/sfx/push_key.wav", "static")
 }
 
 sounds.bg_music:setLooping(true)

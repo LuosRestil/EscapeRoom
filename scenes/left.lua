@@ -116,6 +116,7 @@ local left = {
               key_pushed = true
               game.msg = "you push the object\nout of the keyhole\nand it falls onto\nthe sheet music below."
               game:remove_item_from_inventory("hatpin")
+              game:play_sound("push_key")
             else
               game.msg = "if you do that now\nyou won't be able\nto reach what\nfalls out."
             end
@@ -149,6 +150,7 @@ local left = {
           game:remove_item_from_inventory("sheet music")
           paper_on_floor = true
           game:scene_toggle_item_hidden("left", "paper on floor")
+          game:play_sound("paper_down")
         else
           game:wrong_item("")
           game.msg = "you rub the " .. game.active_item.name .. "\non the door.\n\"open sesame!\"\nit doesn't work."

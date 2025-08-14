@@ -108,6 +108,7 @@ local right = {
           game:scene_toggle_item_hidden("right", self.name)
           game:scene_toggle_item_hidden("right", "sheet music on stand")
           game:remove_item_from_inventory("sheet music")
+          game:play_sound("paper_down")
         else
           game:wrong_item("")
           game.msg = "that doesn't go there"
