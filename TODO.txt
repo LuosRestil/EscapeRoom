@@ -1,5 +1,3 @@
---open piano to get screwdriver
-
 -- update game:wrong_item to take custom message, update all wrong_item use accordingly (message doesn't work for everything, like "you can't <action> with a <ice block tongs>")
 
 -- more content for kitchen, it's really boring
