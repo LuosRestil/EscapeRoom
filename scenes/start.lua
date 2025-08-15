@@ -1,5 +1,7 @@
 local utils = require "utils"
 
+local door_locked = true
+
 local pencil = {
   name = "pencil",
   weight = 5,
@@ -18,17 +20,32 @@ local start = {
       y = 60,
       w = 6,
       h = 15,
-      desc = [[the door is locked]],
+      desc = "looks like you'll\nneed a key.",
       activate = function(self, game)
         if game.active_item ~= nil then
           ---@diagnostic disable-next-line: undefined-field
           if game.active_item.name == "key" then
             game.msg = "you unlock the door!"
           else
-            game:wrong_item("unlock a door")
+            game:wrong_item("unlock the door")
           end
         else
-          game.msg = "the door is locked!"
+          game.msg = self.desc
+        end
+      end
+    },
+    {
+      name = "door",
+      x = 51,
+      y = 33,
+      w = 37,
+      h = 64,
+      desc = "a door leading\nto the outside.\nit's locked.",
+      activate = function(self, game)
+        if door_locked then
+          game.msg = self.desc
+        else
+          -- TODO end game
         end
       end
     },

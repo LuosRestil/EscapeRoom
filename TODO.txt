@@ -1,4 +1,3 @@
--- there's a copy of the shining in the freezer that contributes to the color box count
 -- front door hitbox & interaction
 -- win screen
 -- title screen / how to play
