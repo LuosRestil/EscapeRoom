@@ -163,9 +163,17 @@ function game:navigate(scene_name, sound_name)
   self.active_item = nil
 end
 
+local vowels = {"a", "e", "i", "o", "u"}
+
+local function get_article(name)
+  if name:sub(#name, #name) == "s" or name == "sheet music" then return "" end
+  if utils.list_contains(vowels, name:sub(1, 1)) then return "an " end
+  return "a "
+end
+
 function game:wrong_item(action)
   self:play_sound("no")
-  self.msg = "you can't " .. action .. "\nwith a " .. self.active_item.name
+  self.msg = "you can't " .. action .. "\nwith " .. get_article(self.active_item.name) .. self.active_item.name
 end
 
 function game:pickup(item, remove_from_scene)

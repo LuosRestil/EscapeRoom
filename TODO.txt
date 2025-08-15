@@ -1,13 +1,5 @@
--- front door hitbox & interaction
 -- win screen
 -- title screen / how to play
--- sounds
-    placing sheet music on stand/floor
-    pushing key out of lock
-    msg popup
-    toilet flush?
-
--- update game:wrong_item to take custom message, update all wrong_item use accordingly (message doesn't work for everything, like "you can't <action> with a <ice block tongs>")
 
 -- more content for kitchen, it's really boring
 -- more content for bathroom?
