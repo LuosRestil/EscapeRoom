@@ -16,6 +16,7 @@ local basement = {
       h = 8,
       activate = function(self, game)
         game.msg = "there's some brick dust\non the floor."
+        game:play_sound("msg")
       end
     },
     -- loose brick
@@ -28,6 +29,7 @@ local basement = {
       activate = function(self, game)
         if game.active_item == nil then
           game.msg = "this brick feels a\nlittle loose. i\ncan't move it with\nmy bare hands."
+          game:play_sound("msg")
         elseif game.active_item.name == "ice block tongs" then
           game:remove_item_from_inventory("ice block tongs")
           game:scene_toggle_item_hidden("basement", self.name)
@@ -60,6 +62,7 @@ local basement = {
         else
           if game.active_item == nil then
             game.msg = "an empty light bulb socket"
+            game:play_sound("msg")
           elseif game.active_item.name == self.name then
             game:remove_item_from_inventory(self.name)
             game:replace_bulb()

@@ -107,8 +107,10 @@ local left = {
         if game.active_item == nil then
           if key_pushed then
             game.msg = "you peep through the\nkeyhole into what\nappears to be a\nbathroom."
+            game:play_sound("msg")
           else
             game.msg = "you try to look\nthrough the keyhole\nbut something is\nblocking it from\nthe other side."
+            game:play_sound("msg")
           end
         else
           if game.active_item.name == "hatpin" then
@@ -119,12 +121,14 @@ local left = {
               game:play_sound("push_key")
             else
               game.msg = "if you do that now\nyou won't be able\nto reach what\nfalls out."
+              game:play_sound("msg")
             end
           elseif game.active_item.name == "bathroom key" then
             door_locked = false
             game.msg = "you unlock the door."
             game:remove_item_from_inventory("bathroom key")
             game:remove_item_from_scene("left", self.name)
+            game:play_sound("unlock")
           else
             game:wrong_item("")
             game.msg = "that doesn't fit in\nthe keyhole."
@@ -146,6 +150,7 @@ local left = {
 
         if game.active_item == nil then
           game.msg = "the door is locked"
+          game:play_sound("msg")
         elseif game.active_item.name == "sheet music" then
           game:remove_item_from_inventory("sheet music")
           paper_on_floor = true

@@ -12,6 +12,7 @@ local grate_open = {
       activate = function(self, game)
         if game.active_item == nil then
           game.msg = "it's too dark to\nsee anything."
+          game:play_sound("msg")
           return
         end
         if game.active_item.name == "matches" then

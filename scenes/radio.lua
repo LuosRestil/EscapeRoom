@@ -44,6 +44,7 @@ local radio = {
     end
     for _, naughty in ipairs(naughties) do
       if naughty then game.msg = "naughty..." end
+      game:play_sound("no")
     end
     if is_solution then
       if self.on and self.sound == static then

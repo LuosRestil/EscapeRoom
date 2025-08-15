@@ -27,6 +27,7 @@ for _, screw_loc in ipairs(screw_locs) do
         game.msg = [[the grate is held closed with
 screws. you hear something
 rattling around inside.]]
+        game:play_sound("msg")
       end
     end
   })

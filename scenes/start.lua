@@ -26,11 +26,13 @@ local start = {
           ---@diagnostic disable-next-line: undefined-field
           if game.active_item.name == "key" then
             game.msg = "you unlock the door!"
+            game:play_sound("unlock")
           else
             game:wrong_item("unlock the door")
           end
         else
           game.msg = self.desc
+          game:play_sound("msg")
         end
       end
     },
@@ -44,6 +46,7 @@ local start = {
       activate = function(self, game)
         if door_locked then
           game.msg = self.desc
+          game:play_sound("msg")
         else
           -- TODO end game
         end

@@ -9,7 +9,10 @@ local left = {
       y = 13,
       w = 22,
       h = 25,
-      activate = function(self, game) game.msg = "we aim to please.\nplease aim." end
+      activate = function(self, game) 
+        game.msg = "we aim to please.\nplease aim."
+        game:play_sound("msg")
+      end
     },
     -- scale
     {
@@ -25,6 +28,7 @@ local left = {
           weight = game.active_item.weight
         end
         game.msg = "the readout says: " .. weight .. "g."
+        game:play_sound("msg")
       end
     },
     -- matches

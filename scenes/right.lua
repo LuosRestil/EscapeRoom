@@ -34,6 +34,7 @@ local function drop_zone_activate(self, game)
     weight_slots[self.idx] = {}
   elseif game.active_item == nil then
     game.msg = "a metal plate mounted\nonto a large box with\na door on the front."
+    game:play_sound("msg")
   else
     weight_slots[self.idx] = game.active_item
     game:remove_item_from_inventory(game.active_item.name)
@@ -65,8 +66,10 @@ local right = {
       activate = function(self, game)
         if game.active_item == nil then
           game.msg = "such a lovely day\noutside. what a shame\nyou're trapped in here."
+          game:play_sound("msg")
         elseif game.active_item.name == "binoculars" then
           game.msg = "through the binoculars, you\nsee an airplane flying\na banner advertisement\n\"101.1 krlc\""
+          game:play_sound("msg")
         else
           game:wrong_item("")
           game.msg = "i'm not sure what that\nwould accomplish."
@@ -104,6 +107,7 @@ local right = {
       activate = function(self, game)
         if game.active_item == nil then
           game.msg = "a place to put\nsheet music."
+          game:play_sound("msg")
         elseif game.active_item.name == "sheet music" then
           game:scene_toggle_item_hidden("right", self.name)
           game:scene_toggle_item_hidden("right", "sheet music on stand")

@@ -28,6 +28,7 @@ end
 function item:activate(game)
   if self.desc ~= nil then
     game.msg = self.desc
+    game:play_sound("msg")
   end
 end
 
