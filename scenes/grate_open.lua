@@ -18,6 +18,7 @@ local grate_open = {
           game:navigate("grate_lit", "match")
           game:scene_toggle_item_hidden("start", "grate_open")
           game:scene_toggle_item_hidden("start", "grate_lit")
+          game:remove_item_from_inventory("matches")
           return
         end
         game:wrong_item("get back there")

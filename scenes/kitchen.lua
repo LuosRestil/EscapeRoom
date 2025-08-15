@@ -5,7 +5,12 @@ local ice_block_tongs = {
   name = "ice block tongs",
   desc = "used for carrying\nlarge blocks of ice.",
   img = utils.load_img("assets/imgs/items/ice_block_tongs.png"),
-  hidden = true
+}
+
+local book = {
+  name = "book",
+  desc = "the whining - stefan kang",
+  img = utils.load_img("assets/imgs/items/book.png"),
 }
 
 local kitchen = {
@@ -37,7 +42,19 @@ local kitchen = {
         utils.rectfill(self.x, self.y, self.w + 1, self.h + 1, colors.light_grey)
       end
     },
-
+    -- freezer
+    {
+      name = "freezer",
+      x = 85,
+      y = 30,
+      w = 34,
+      h = 20,
+      activate = function(self, game)
+        game:pickup(book)
+        game.msg = "you found a book\nin the freezer. what's\nthat doing in there?"
+        game:scene_toggle_item_hidden("kitench", self.name)
+      end
+    },
     ice_block_tongs
   }
 }
