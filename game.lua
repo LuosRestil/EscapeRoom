@@ -17,6 +17,7 @@ game.msg = nil
 game.debug_mode = false
 game.mouse_mode = false
 game.mouse_down = false
+game.win = false
 
 --measuring stuff with the mouse in debug mode
 game.dragging = false
@@ -27,6 +28,7 @@ game.drag_end = nil
 game.basement_bulb_taken = false
 
 function game:update()
+  if self.win then return end
   self.hovered_item = nil
   if self.inv_open then return end
 
@@ -39,6 +41,8 @@ end
 
 function game:draw()
   self.current_scene:draw()
+
+  if self.win then return end
 
   if self.inv_open then
     inv:draw()
