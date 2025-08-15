@@ -44,7 +44,6 @@ local start = {
       h = 64,
       desc = "a door leading\nto the outside.\nit's locked.",
       activate = function(self, game)
-        door_locked = false
         if door_locked then
           game.msg = self.desc
           game:play_sound("msg")
