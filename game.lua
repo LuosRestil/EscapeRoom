@@ -18,6 +18,7 @@ game.debug_mode = false
 game.mouse_mode = false
 game.mouse_down = false
 game.win = false
+game.started = false
 
 --measuring stuff with the mouse in debug mode
 game.dragging = false
@@ -47,7 +48,9 @@ function game:draw()
   if self.inv_open then
     inv:draw()
   else
-    inv_btn:draw(self)
+    if self.started then 
+      inv_btn:draw(self)
+    end
 
     -- ptrs
     if self.hovered_item ~= nil and utils.list_contains(NAV_AREAS, self.hovered_item.name) then

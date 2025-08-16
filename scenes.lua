@@ -1,5 +1,6 @@
 local scene_metatable = require "scenes.scene"
 local item_metatable = require "items.item"
+local title = require "scenes.title"
 local start = require "scenes.start"
 local left = require "scenes.left"
 local right = require "scenes.right"
@@ -16,6 +17,7 @@ local kitchen = require "scenes.kitchen"
 local win = require "scenes.win"
 
 local scenes = {
+  title = title,
   start = start,
   left = left,
   right = right,

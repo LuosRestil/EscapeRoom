@@ -51,7 +51,7 @@ local start = {
           game:navigate("win", "")
           game.win = true
           game:stop_sound("bg_music")
-          game:play_sound("win_music")
+          game:play_sound("title")
         end
       end
     },
