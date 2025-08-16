@@ -22,17 +22,15 @@ local start = {
       h = 15,
       desc = "looks like you'll\nneed a key.",
       activate = function(self, game)
-        if game.active_item ~= nil then
-          ---@diagnostic disable-next-line: undefined-field
-          if game.active_item.name == "key" then
-            game.msg = "you unlock the door!"
-            game:play_sound("unlock")
-          else
-            game:wrong_item("unlock the door")
-          end
-        else
+        if game.active_item == nil then
           game.msg = self.desc
           game:play_sound("msg")
+        elseif game.active_item.name == "key" then
+          game.msg = "you unlock the door!"
+          game:play_sound("unlock")
+          door_locked = false
+        else
+          game:wrong_item("unlock the door")
         end
       end
     },

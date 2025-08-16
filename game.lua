@@ -48,7 +48,7 @@ function game:draw()
   if self.inv_open then
     inv:draw()
   else
-    if self.started then 
+    if self.started then
       inv_btn:draw(self)
     end
 
@@ -127,7 +127,11 @@ function game:keypressed(key, scancode, is_repeat)
       self:close_inv()
     end
   else
-    if scancode == "x" then self.msg = nil end
+    if scancode == "x" then
+      self.msg = nil
+      self.active_item = nil
+    end
+
     if self.hovered_item ~= nil and scancode == "z" and not is_repeat then
       self.hovered_item:activate(self)
       self.active_item = nil
@@ -170,7 +174,7 @@ function game:navigate(scene_name, sound_name)
   self.active_item = nil
 end
 
-local vowels = {"a", "e", "i", "o", "u"}
+local vowels = { "a", "e", "i", "o", "u" }
 
 local function get_article(name)
   if name:sub(#name, #name) == "s" or name == "sheet music" then return "" end

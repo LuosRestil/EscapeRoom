@@ -5,12 +5,14 @@ local ice_block_tongs = {
   name = "ice block tongs",
   desc = "used for carrying\nlarge blocks of ice.",
   img = utils.load_img("assets/imgs/items/ice_block_tongs.png"),
+  weight = 2679
 }
 
 local book = {
   name = "book",
   desc = "the whining - stefan kang",
   img = utils.load_img("assets/imgs/items/book.png"),
+  weight = 294
 }
 
 local kitchen = {
@@ -55,7 +57,8 @@ local kitchen = {
         game:scene_toggle_item_hidden("kitench", self.name)
       end
     },
-    ice_block_tongs
+    ice_block_tongs,
+    book
   }
 }
 

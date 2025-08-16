@@ -167,6 +167,7 @@ local right = {
       activate = drop_zone_activate,
       draw = drop_zone_draw
     },
+    -- binoculars
     {
       name = "binoculars",
       x = 96,
