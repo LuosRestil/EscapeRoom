@@ -75,9 +75,9 @@ function game:draw()
     if self.debug_mode then
       love.graphics.setColor(255, 0, 0);
       for _, item in ipairs(self.current_scene.items) do
-        if item.w == nil or item.hidden then goto continue end
-        love.graphics.rectangle("line", item.x, item.y, item.w, item.h)
-        ::continue::
+        if item.w ~= nil and not item.hidden then
+          love.graphics.rectangle("line", item.x, item.y, item.w, item.h)
+        end
       end
       love.graphics.setColor(0, 255, 100)
       for _, area in ipairs(nav.areas) do
