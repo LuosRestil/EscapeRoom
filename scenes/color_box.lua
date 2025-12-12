@@ -1,7 +1,7 @@
 local utils = require "utils"
 local colors = require "colors"
 
-local solution = { 9, 7, 6 }
+local solution = { 8, 7, 6 }
 
 local color_box = {
   back = "start",

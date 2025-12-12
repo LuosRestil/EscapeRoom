@@ -21,7 +21,7 @@ local radio = {
   back = "start",
   img = utils.load_img("assets/imgs/scenes/radio.png"),
   on = false,
-  sound = static,
+  sound = "static",
   -- ascii, 32 (space) 97-122 (a-z)
   code = { 32, 32, 32, 32 },
   items = {
@@ -49,20 +49,20 @@ local radio = {
       end
     end
     if is_solution then
-      if self.on and self.sound == static then
-        self.sound:stop()
-        self.sound = song
-        self.sound:play()
+      if self.on and self.sound == "static" then
+        game:stop_sound(self.sound)
+        self.sound = "piano_bg_music"
+        game:play_sound(self.sound)
       else
-        self.sound = song
+        self.sound = "piano_bg_music"
       end
     else
-      if self.on and self.sound == song then
-        self.sound:stop()
-        self.sound = static
-        self.sound:play()
+      if self.on and self.sound == "piano_bg_music" then
+        game:stop_sound(self.sound)
+        self.sound = "static"
+        game:play_sound(self.sound)
       else
-        self.sound = static
+        self.sound = "static"
       end
     end
   end
@@ -79,9 +79,9 @@ table.insert(radio.items, {
     radio.on = not radio.on
     if radio.on then
       game:stop_sound("bg_music")
-      radio.sound:play()
+      game:play_sound(radio.sound)
     else
-      radio.sound:stop()
+      game:stop_sound(radio.sound)
       game:play_sound("bg_music")
     end
   end

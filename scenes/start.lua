@@ -29,6 +29,7 @@ local start = {
           game.msg = "you unlock the door!"
           game:play_sound("unlock")
           door_locked = false
+          game:scene_toggle_item_hidden("start", self.name)
         else
           game:wrong_item("unlock the door")
         end
@@ -49,6 +50,8 @@ local start = {
           game:navigate("win", "")
           game.win = true
           game:stop_sound("bg_music")
+          game:stop_sound("piano_bg_music")
+          game:stop_sound("static")
           game:play_sound("title")
         end
       end

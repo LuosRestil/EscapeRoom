@@ -18,11 +18,17 @@ local sounds = {
   paper_down = love.audio.newSource("assets/audio/sfx/paper_down.wav", "static"),
   push_key = love.audio.newSource("assets/audio/sfx/push_key.wav", "static"),
   msg = love.audio.newSource("assets/audio/sfx/msg.wav", "static"),
-  unlock = love.audio.newSource("assets/audio/sfx/unlock.wav", "static")
+  unlock = love.audio.newSource("assets/audio/sfx/unlock.wav", "static"),
+  static = love.audio.newSource("assets/audio/radio/static.ogg", "stream"),
+  piano_bg_music = love.audio.newSource("assets/audio/radio/song.ogg", "stream")
 }
 
 sounds.bg_music:setLooping(true)
 sounds.title:setLooping(true)
 sounds.title:setVolume(0.15)
+sounds.static:setLooping(true)
+sounds.static:setVolume(0.4)
+sounds.piano_bg_music:setLooping(true)
+sounds.piano_bg_music:setVolume(0.3)
 
 return sounds
